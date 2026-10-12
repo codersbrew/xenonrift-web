@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build output
+dist/
+
+# Local env files
+.env
+.env.local
+.env.production
+.env.development
+
+# Editor & OS files
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/extensions.json
+
+# Large game release binaries (>100MB exceeds standard GitHub limits)
+public/downloads/*.zip
+public/downloads/*.tar.gz
