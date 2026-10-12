@@ -69,3 +69,12 @@
   - Set as canonical hero key art (`public/images/hero/hero_key_art.jpg`)
   - Updated social OpenGraph and Twitter card previews
   - Locked in default hero frame showcase and gallery feature
+
+## 6. GitHub Pages & Custom Domain Setup
+- [x] Configure `vite.config.js` with relative base path (`base: './'`) for custom domain and repository subpaths
+- [x] Create `public/CNAME` with `xenonrift.com`
+- [x] Create automated GitHub Actions workflow (`.github/workflows/deploy.yml`)
+- [x] Initialize Git repository and create clean initial commit on `main`
+- [x] Point game downloads to official GitHub Releases asset URLs
+- [ ] Push to GitHub remote and enable GitHub Pages under Actions mode
+- [ ] Configure DNS A and CNAME records at domain registrar for `xenonrift.com`
