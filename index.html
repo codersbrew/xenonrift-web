@@ -7,1220 +7,264 @@
   
   <!-- Meta & OpenGraph -->
   <meta name="description" content="Xenon Rift is a persistent top-down multiplayer space arena shooter built on Unity 6. Two factions battle over dimensional rifts in 10v10 combat with dedicated servers. Available for macOS, iOS, and Linux.">
-  <meta name="keywords" content="Xenon Rift, space arena shooter, multiplayer space combat, top-down space shooter, Unity 6, FishNet networking, dedicated server, indie game, macOS game, iOS game">
   <meta property="og:title" content="Xenon Rift — Multiplayer Space Arena Shooter">
-  <meta property="og:description" content="Persistent 10v10 space battles. Cyan Vanguard vs Ember Syndicate. Download now for macOS, iOS, and dedicated Linux servers.">
+  <meta property="og:description" content="Persistent 10v10 space battles. Cyan Vanguard vs Ember Syndicate. Download for macOS, iOS, and Linux servers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xenonrift.com">
   <meta property="og:image" content="/images/hero/hero_key_art.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Xenon Rift — Space Arena Combat">
-  <meta name="twitter:description" content="High-stakes 10v10 top-down spaceship combat across dimensional rifts. Download for macOS and iOS.">
+  <meta name="twitter:description" content="High-stakes 10v10 top-down spaceship combat across dimensional rifts.">
   <meta name="twitter:image" content="/images/hero/hero_key_art.jpg">
   
-  <!-- Favicon & Manifest -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#00f0ff">
+  <meta name="theme-color" content="#06070a">
 
-  <!-- Fonts -->
+  <!-- Clean Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-  <!-- Background Canvas & Overlays -->
+  <!-- Ambient Space Canvas -->
   <canvas id="starfield"></canvas>
-  <div class="scanlines-overlay"></div>
-  <div class="vignette-overlay"></div>
 
   <div class="content-wrapper">
-    <!-- Header / Navbar -->
+    <!-- Navbar -->
     <header class="site-header">
       <div class="container">
         <nav class="navbar">
           <a href="#" class="brand-link">
-            <!-- Insignia SVG with Concentric Orbital Rings -->
             <svg class="brand-icon" viewBox="0 0 64 64" fill="none">
               <defs>
-                <linearGradient id="navCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="navCyan" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#00f0ff" />
                   <stop offset="100%" stop-color="#0080ff" />
                 </linearGradient>
-                <linearGradient id="navVioletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="navViolet" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#d946ef" />
                   <stop offset="100%" stop-color="#8b5cf6" />
                 </linearGradient>
               </defs>
-              <ellipse cx="32" cy="32" rx="26" ry="17" stroke="url(#navCyanGrad)" stroke-width="2.5" transform="rotate(-15 32 32)" />
-              <ellipse cx="32" cy="32" rx="18" ry="11" stroke="url(#navVioletGrad)" stroke-width="2" transform="rotate(20 32 32)" />
+              <ellipse cx="32" cy="32" rx="26" ry="17" stroke="url(#navCyan)" stroke-width="2.5" transform="rotate(-15 32 32)" />
+              <ellipse cx="32" cy="32" rx="18" ry="11" stroke="url(#navViolet)" stroke-width="2" transform="rotate(20 32 32)" />
               <line x1="8" y1="32" x2="56" y2="32" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-              <circle cx="32" cy="32" r="4" fill="#ffffff" />
+              <circle cx="32" cy="32" r="3.5" fill="#ffffff" />
             </svg>
-            <span class="brand-text">XENON RIFT</span>
-            <span class="brand-tag">v0.3.0</span>
+            <span class="brand-title">XENON RIFT</span>
           </a>
 
           <ul class="nav-links">
             <li><a href="#overview" class="nav-link">Overview</a></li>
-            <li><a href="#modes" class="nav-link">Game Modes</a></li>
-            <li><a href="#factions" class="nav-link">Factions</a></li>
-            <li><a href="#manual" class="nav-link">Flight Manual</a></li>
-            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#features" class="nav-link">Features</a></li>
             <li><a href="#downloads" class="nav-link">Downloads</a></li>
-            <li><a href="#server" class="nav-link">Server</a></li>
+            <li><a href="#visuals" class="nav-link">Visuals</a></li>
           </ul>
 
           <div class="nav-actions">
-            <!-- Audio Toggle -->
-            <button id="audioToggleBtn" class="icon-btn" title="Toggle Sci-Fi SFX Audio" aria-label="Toggle Audio">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
-              </svg>
-            </button>
-
-            <!-- Warp Hyperdrive Toggle -->
-            <button id="warpToggleBtn" class="icon-btn" title="Engage Warp Speed Starfield" aria-label="Toggle Warp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </button>
-
-            <a href="#downloads" class="nav-cta">Download</a>
-
-            <button id="menuToggleBtn" class="menu-toggle" aria-label="Open Navigation Menu">
-              ☰
-            </button>
+            <a href="#downloads" class="nav-btn">Get the Game</a>
           </div>
         </nav>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="hero">
+    <section class="hero-section" id="overview">
       <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-hud-header">
-              <div class="pulse-dot"></div>
-              <span>SECTOR: XENON OUTPOST // METAGAME: PHASE 1 LIVE</span>
-            </div>
-            
-            <h1 class="hero-title">XENON RIFT</h1>
-            <h2 class="hero-subtitle">Top-Down Multiplayer Space Arena Shooter</h2>
-            
-            <p class="hero-desc">
-              Two rival factions locked in an eternal Faction War across dimensional rifts. 
-              Drop in and out of persistent 10v10 tactical dogfights with server-authoritative physics, 
-              intelligent bot backfill, and competitive territory siege modes.
-            </p>
+        <div class="hero-tagline">
+          <div class="hero-tag-dot"></div>
+          <span>PERSISTENT FACTION WAR · 10v10 ARENA</span>
+        </div>
 
-            <div class="hero-cta-group">
-              <a href="#downloads" class="btn btn-primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                <span>Download for macOS</span>
-              </a>
+        <h1 class="hero-title">XENON RIFT</h1>
+        <p class="hero-subtitle">
+          A top-down multiplayer space arena shooter. Two rival factions clash in persistent 10v10 battles with server-authoritative physics and territory siege modes.
+        </p>
 
-              <a href="#downloads" class="btn btn-secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                <span>iOS & Mobile</span>
-              </a>
+        <div class="hero-cta-group">
+          <a href="#downloads" class="btn btn-primary">Download Client</a>
+          <button class="btn btn-secondary copy-trigger" data-copy="game.xenonrift.com:7770">
+            <span>Server: game.xenonrift.com:7770</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
 
-              <a href="#server" class="btn btn-secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                <span>Dedicated Server</span>
-              </a>
-            </div>
+        <!-- Hero Artwork -->
+        <div class="hero-art-container">
+          <img src="/images/hero/hero_key_art.jpg" alt="Xenon Rift — Quantum Event Horizon" class="hero-art-img">
+          <div class="hero-art-fade"></div>
+        </div>
 
-            <!-- Server Status Card -->
-            <div class="server-status-card">
-              <div class="server-indicator">
-                <div class="server-dot"></div>
-                <span>LIVE SERVER</span>
-              </div>
-              <code class="server-address">game.xenonrift.com:7770</code>
-              <button class="copy-btn copy-trigger" data-copy="game.xenonrift.com:7770" title="Copy Address">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                <span>COPY</span>
-              </button>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
-                PING: <strong id="liveServerPing" style="color: var(--status-online);">22ms</strong>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero Visual HUD Frame & Key Art Selector -->
-          <div class="hero-visual">
-            <div class="hud-frame">
-              <div class="hud-corner tl"></div>
-              <div class="hud-corner tr"></div>
-              <div class="hud-corner bl"></div>
-              <div class="hud-corner br"></div>
-
-              <div class="hud-header-bar">
-                <span id="heroStyleHeader">OFFICIAL KEY ART // QUANTUM HORIZON</span>
-                <span>SYSTEM READY</span>
-              </div>
-
-              <div class="hero-image-container">
-                <img id="heroVisualImg" src="/images/hero/option1_quantum_event_horizon.jpg" alt="Xenon Rift Key Art — Quantum Event Horizon" class="hero-image">
-                <div class="hero-reticle"></div>
-                <div class="hero-telemetry">
-                  <div class="telemetry-item"><span>SECTOR:</span> <strong id="heroTelemetrySector">QUANTUM RIFT</strong></div>
-                  <div class="telemetry-item"><span>STATUS:</span> <strong id="heroTelemetryStatus">ACCRETION ACTIVE</strong></div>
-                  <div class="telemetry-item"><span>VESSELS:</span> <strong id="heroTelemetryVessels">2 INTERCEPTORS</strong></div>
-                </div>
-              </div>
-
-              <!-- Interactive Key Art Style Switcher -->
-              <div class="hero-style-bar">
-                <span class="style-bar-label">THEME:</span>
-                <button class="style-choice-btn active" data-style="1" data-img="/images/hero/option1_quantum_event_horizon.jpg" data-name="THEME 01 // QUANTUM SINGULARITY" data-sector="QUANTUM RIFT" data-status="ACCRETION ACTIVE" data-vessels="2 INTERCEPTORS">
-                  01 · Quantum Horizon
-                </button>
-                <button class="style-choice-btn" data-style="2" data-img="/images/hero/option2_faction_war_collision.jpg" data-name="THEME 02 // FACTION COLLISION" data-sector="CONTESTED FRONT" data-status="CLASH ENGAGED" data-vessels="DOGFIGHT SQUADRON">
-                  02 · Faction Clash
-                </button>
-                <button class="style-choice-btn" data-style="3" data-img="/images/hero/option3_deep_void_tactical_outpost.jpg" data-name="THEME 03 // TACTICAL OUTPOST" data-sector="XENON OUTPOST" data-status="ORBITAL DEFENSE" data-vessels="PATROL FLEET">
-                  03 · Tactical Outpost
-                </button>
-              </div>
-            </div>
-          </div>
+        <!-- Live Server Status Bar -->
+        <div class="server-bar">
+          <div class="server-dot"></div>
+          <span class="server-label">OFFICIAL SERVER</span>
+          <span class="server-host">game.xenonrift.com:7770</span>
+          <button class="copy-icon-btn copy-trigger" data-copy="game.xenonrift.com:7770" title="Copy Address">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
         </div>
       </div>
     </section>
 
     <!-- Key Highlights Section -->
-    <section class="section" id="overview">
+    <section class="section" id="features">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge">CORE CAPABILITIES</span>
-          <h2 class="section-title">Designed for Fast, Tactical Space Combat</h2>
-          <p class="section-desc">
-            Xenon Rift blends the intense responsiveness of classic top-down arena shooters (Subspace, Geometry Wars, Asteroids) 
-            with modern server-authoritative netcode, deep-space visual fidelity, and competitive meta progression.
-          </p>
+          <h2 class="section-title">Built for Tactical Combat</h2>
+          <p class="section-desc">Fast-paced, responsive spaceship dogfights inspired by classic top-down arena shooters.</p>
         </div>
 
         <div class="features-grid">
-          <!-- Card 1 -->
           <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Persistent 10v10 Arena</h3>
+            <div class="feature-num">01 // ARENA</div>
+            <h3>Persistent 10v10 Battles</h3>
             <p>
-              The arena never sleeps. Pilots drop in and out instantly by joining their faction. 
-              Intelligent combat bots seamlessly backfill slots to guarantee 20 ships are always in active dogfights.
+              Jump into the Xenon Outpost anytime. Pilots seamlessly drop in and out by choosing Cyan Vanguard or Ember Syndicate. Intelligent bots automatically fill open slots so combat never stops.
             </p>
-            <span class="feature-tag">[DYNAMIC BACKFILL // 0 WAIT TIME]</span>
           </div>
 
-          <!-- Card 2 -->
           <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-            </div>
-            <h3>Authoritative Dedicated Server</h3>
+            <div class="feature-num">02 // MODES</div>
+            <h3>The Rift War</h3>
             <p>
-              Built on FishNet 4.7.3 over low-latency UDP 7770. The server authoritatively drives ship physics, collision, and hit registration at 60 Hz, ensuring cheat-free competitive balance.
+              Back-to-back rotating competitive match modes: Team Deathmatch to 100 kills, Capture the Depot with cumulative 60-second hold times, and 20-life Asymmetric Defense.
             </p>
-            <span class="feature-tag">[FISHNET NETWORKING // UDP 7770]</span>
           </div>
 
-          <!-- Card 3 -->
           <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 16 12 12 8"/></svg>
-            </div>
-            <h3>Multi-Style Flight Controls</h3>
+            <div class="feature-num">03 // NETCODE</div>
+            <h3>Dedicated Servers</h3>
             <p>
-              Fly how you want. Full support for Keyboard + Mouse decoupled turret aim, Twin-Stick gamepads, Classic Asteroids/Subspace inertial flight, and Face-Move with angle lock.
+              Powered by FishNet over low-latency UDP. The server authoritatively runs ship physics and collision simulation at 60 Hz for consistent competitive integrity.
             </p>
-            <span class="feature-tag">[KBM + TWIN-STICK + CLASSIC + FACE-MOVE]</span>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Card 4 -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+    <!-- Downloads Section -->
+    <section class="section" id="downloads" style="background: rgba(10, 12, 18, 0.4);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Downloads</h2>
+          <p class="section-desc">Get the client or host a dedicated server process on your machine.</p>
+        </div>
+
+        <div class="downloads-grid">
+          <!-- macOS -->
+          <div class="download-card">
+            <div class="download-card-header">
+              <div class="download-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+              </div>
+              <h3>macOS Player</h3>
             </div>
-            <h3>Cross-Platform Tactical Play</h3>
-            <p>
-              Mac, iOS (iPhone & iPad with paired gamepads), and dedicated Linux hosts. Rebuilt with Unity 6 Universal Render Pipeline for crisp volumetric effects and silky 60 FPS mobile performance.
+            <p class="download-card-desc">
+              Universal build for Apple Silicon and Intel. Includes single-player offline practice, online multiplayer client, and local dedicated server mode.
             </p>
-            <span class="feature-tag">[MACOS // IOS // LINUX DEDICATED]</span>
+            <a href="https://github.com/codersbrew/xenonrift/releases/latest/download/XenonRift-mac.zip" class="btn btn-primary">
+              Download .zip
+            </a>
+            <span class="download-tip">macOS 12+ · Gatekeeper: Right-click & Open</span>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Game Modes & Rift War Section -->
-    <section class="section" id="modes" style="background: rgba(8, 12, 26, 0.4);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">THE RIFT WAR</span>
-          <h2 class="section-title">Dynamic Rotating Match Modes</h2>
-          <p class="section-desc">
-            Each arena hosts a volatile Xenon Rift. Factions battle through back-to-back rotating match types. 
-            A challenger victory collapses the rift under their control, shifting the galactic frontline across 15 star sectors.
-          </p>
-        </div>
-
-        <div class="modes-grid">
-          <!-- Mode 1: TDM -->
-          <div class="mode-card">
-            <div class="mode-card-header">
-              <span class="mode-code">MODE 01 // ROTATION</span>
-              <span class="mode-target-pill">100 KILLS</span>
-            </div>
-            <div class="mode-card-body">
-              <h3>Team Deathmatch</h3>
-              <p>
-                Pure high-velocity dogfighting. Both factions deploy into the 320x200 arena. 
-                First faction to eliminate 100 enemy vessels takes the match. 20-minute operational time limit.
-              </p>
-              <div class="mode-stats-row">
-                <div class="mode-stat-col">
-                  <span>TARGET</span>
-                  <strong>100 Kills</strong>
-                </div>
-                <div class="mode-stat-col">
-                  <span>TIME CAP</span>
-                  <strong>20 Mins</strong>
-                </div>
-                <div class="mode-stat-col">
-                  <span>DOCTRINE</span>
-                  <strong>Direct Combat</strong>
-                </div>
+          <!-- iOS -->
+          <div class="download-card">
+            <div class="download-card-header">
+              <div class="download-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               </div>
+              <h3>iOS (Mobile)</h3>
             </div>
-          </div>
-
-          <!-- Mode 2: Capture Depot -->
-          <div class="mode-card">
-            <div class="mode-card-header">
-              <span class="mode-code">MODE 02 // ROTATION</span>
-              <span class="mode-target-pill">60 SECONDS</span>
-            </div>
-            <div class="mode-card-body">
-              <h3>Capture the Depot</h3>
-              <p>
-                Territorial infiltration. Penetrate the perimeter and hold the ringed enemy fuel depot. 
-                Time accumulates across visits and never drains. Contesting pilots halt capture progress.
-              </p>
-              <div class="mode-stats-row">
-                <div class="mode-stat-col">
-                  <span>HOLD GOAL</span>
-                  <strong>60 Secs</strong>
-                </div>
-                <div class="mode-stat-col">
-                  <span>RETENTION</span>
-                  <strong>Banked / No Drain</strong>
-                </div>
-                <div class="mode-stat-col">
-                  <span>DOCTRINE</span>
-                  <strong>Zone Control</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mode 3: OvD -->
-          <div class="mode-card">
-            <div class="mode-card-header">
-              <span class="mode-code">MODE 03 // ROTATION</span>
-              <span class="mode-target-pill">20 LIVES // 5 MINS</span>
-            </div>
-            <div class="mode-card-body">
-              <h3>Offense vs Defense</h3>
-              <p>
-                Asymmetric orbital siege. The faction holding the rift defends its central depot with a shared pool of 20 respawns. 
-                Attackers win by annihilating all defenders; defenders win by holding out until clock expiry.
-              </p>
-              <div class="mode-stats-row">
-                <div class="mode-stat-col">
-                  <span>LIFE POOL</span>
-                  <strong>20 Shared</strong>
-                </div>
-                <div class="mode-stat-col">
-                  <span>CLOCK</span>
-                  <strong>5:00 Mins</strong>
-                </div>
-                <div class="mode-stat-col">
-                  <span>DOCTRINE</span>
-                  <strong>Attrition Defense</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Factions Section -->
-    <section class="section" id="factions">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">INTERSTELLAR CONFLICT</span>
-          <h2 class="section-title">Two Factions. One Persistent Front.</h2>
-          <p class="section-desc">
-            Choose your allegiance. Each faction commands distinct tactical doctrine, combat philosophies, and visual identities across the contested void.
-          </p>
-        </div>
-
-        <div class="factions-container">
-          <!-- Cyan Vanguard -->
-          <div class="faction-card cyan-card">
-            <div class="faction-crest">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <h3 class="faction-title">Cyan Vanguard</h3>
-            <div class="faction-doctrine">ORDER · DISCIPLINE · CONTAINMENT</div>
-            <p class="faction-desc">
-              The organized orbital defense fleet tasked with securing xenon rift anomalies against exploitation. 
-              The Vanguard values shield integrity, precise synchronized fire, and defensive coordination.
+            <p class="download-card-desc">
+              High-refresh 60 FPS mobile client for iPhone and iPad. Requires a paired Bluetooth controller (Xbox, DualSense, Switch Pro, or MFi).
             </p>
-            <ul class="faction-specs">
-              <li class="faction-spec-row">
-                <span>SIGNATURE COLOR</span>
-                <strong style="color: var(--cyan-bright);">Electric Cyan (#00f0ff)</strong>
-              </li>
-              <li class="faction-spec-row">
-                <span>COMBAT DOCTRINE</span>
-                <strong>Formation & Shield Harmonics</strong>
-              </li>
-              <li class="faction-spec-row">
-                <span>ARENA DEPLOYMENT</span>
-                <strong>West Sector Base (x = -140)</strong>
-              </li>
-              <li class="faction-spec-row">
-                <span>OBJECTIVE FOCUS</span>
-                <strong>Defensive Depot Locking</strong>
-              </li>
-            </ul>
+            <a href="https://testflight.apple.com" target="_blank" rel="noopener" class="btn btn-secondary">
+              TestFlight Beta
+            </a>
+            <span class="download-tip">iOS 16+ · Bluetooth Gamepad Required</span>
           </div>
 
-          <!-- Ember Syndicate -->
-          <div class="faction-card ember-card">
-            <div class="faction-crest">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
+          <!-- Linux Server -->
+          <div class="download-card">
+            <div class="download-card-header">
+              <div class="download-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <h3>Linux Server</h3>
             </div>
-            <h3 class="faction-title">Ember Syndicate</h3>
-            <div class="faction-doctrine">CHAOS · VELOCITY · DOMINION</div>
-            <p class="faction-desc">
-              A daring confederation of outlaw pilots, deep-space scavengers, and rift energy syndicates. 
-              They rely on aggressive afterburner bursts, high-yield offensive volleys, and relentless hit-and-run sieges.
+            <p class="download-card-desc">
+              Stripped headless dedicated server binary for cloud hosting on Ubuntu/Debian. Automated deployment script via <code>Tools/deploy-server.sh</code>.
             </p>
-            <ul class="faction-specs">
-              <li class="faction-spec-row">
-                <span>SIGNATURE COLOR</span>
-                <strong style="color: var(--ember-bright);">Burning Ember (#ff6600)</strong>
-              </li>
-              <li class="faction-spec-row">
-                <span>COMBAT DOCTRINE</span>
-                <strong>High-Speed Aggression & Raids</strong>
-              </li>
-              <li class="faction-spec-row">
-                <span>ARENA DEPLOYMENT</span>
-                <strong>East Sector Base (x = +140)</strong>
-              </li>
-              <li class="faction-spec-row">
-                <span>OBJECTIVE FOCUS</span>
-                <strong>Fast Depot Assault Raids</strong>
-              </li>
-            </ul>
+            <a href="https://github.com/codersbrew/xenonrift/releases/latest/download/xenonrift-server-linux.tar.gz" class="btn btn-secondary">
+              Download .tar.gz
+            </a>
+            <span class="download-tip">x86_64 · UDP Port 7770</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Flight Manual & Ship Specs Section -->
-    <section class="section" id="manual">
+    <!-- Visual Showcase -->
+    <section class="section" id="visuals">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge">TACTICAL TELEMETRY</span>
-          <h2 class="section-title">The "Striker" Combat Vessel</h2>
-          <p class="section-desc">
-            The standardized combat chassis flown by Vanguard and Syndicate pilots alike. 
-            Engineered for high-agility 2.5D space combat with inertial strafing and directional boost.
-          </p>
-        </div>
-
-        <div class="flight-manual-card">
-          <div class="manual-grid">
-            <!-- Schematic Canvas / Visual -->
-            <div class="ship-schematic-view">
-              <div style="position: relative; width: 300px; height: 320px; margin: 0 auto;">
-                <canvas id="schematicBoltCanvas" width="300" height="320" style="position: absolute; top: 0; left: 0; z-index: 2; pointer-events: none;"></canvas>
-                
-                <svg viewBox="0 0 300 320" width="300" height="320" class="schematic-svg-container" style="position: relative; z-index: 1;">
-                  <defs>
-                    <radialGradient id="shieldHolo" cx="50%" cy="50%" r="50%">
-                      <stop offset="60%" stop-color="rgba(0, 240, 255, 0)" />
-                      <stop offset="95%" stop-color="rgba(0, 240, 255, 0.25)" />
-                      <stop offset="100%" stop-color="rgba(0, 240, 255, 0.8)" />
-                    </radialGradient>
-                  </defs>
-
-                  <!-- Kinetic Shield Ellipse -->
-                  <ellipse cx="150" cy="160" rx="130" ry="140" fill="url(#shieldHolo)" stroke="rgba(0, 240, 255, 0.4)" stroke-dasharray="6,4" />
-
-                  <!-- Thruster Flare Glow -->
-                  <path d="M125 250 L135 295 L145 250 Z" fill="#ff6600" opacity="0.8" />
-                  <path d="M155 250 L165 295 L175 250 Z" fill="#ff6600" opacity="0.8" />
-
-                  <!-- Ship Hull (Stylized Top-Down Striker) -->
-                  <polygon points="150,70 185,150 205,220 180,245 150,225 120,245 95,220 115,150" fill="#12182c" stroke="#00f0ff" stroke-width="2" />
-                  <polygon points="150,85 175,155 185,215 150,195 115,215 125,155" fill="#1a2444" stroke="#465f96" stroke-width="1.5" />
-                  
-                  <!-- Cockpit Canopy -->
-                  <polygon points="150,110 162,145 150,170 138,145" fill="#00f0ff" opacity="0.8" />
-
-                  <!-- Twin Plasma Cannon Muzzles -->
-                  <rect x="112" y="115" width="6" height="24" rx="2" fill="#00f0ff" stroke="#ffffff" stroke-width="1" />
-                  <rect x="182" y="115" width="6" height="24" rx="2" fill="#00f0ff" stroke="#ffffff" stroke-width="1" />
-
-                  <!-- Targeting lines -->
-                  <line x1="115" y1="115" x2="115" y2="40" stroke="rgba(0, 240, 255, 0.2)" stroke-dasharray="2,2" />
-                  <line x1="185" y1="115" x2="185" y2="40" stroke="rgba(0, 240, 255, 0.2)" stroke-dasharray="2,2" />
-
-                  <!-- Hardpoint Labels -->
-                  <circle cx="115" cy="115" r="4" fill="#00f0ff" />
-                  <circle cx="185" cy="115" r="4" fill="#00f0ff" />
-                  <circle cx="150" cy="255" r="4" fill="#ff6600" />
-                </svg>
-              </div>
-
-              <div class="schematic-legend">
-                <div class="legend-item">
-                  <div class="legend-color" style="background: var(--cyan-primary);"></div>
-                  <span>TWIN PLASMA CANNONS</span>
-                </div>
-                <div class="legend-item">
-                  <div class="legend-color" style="background: var(--ember-primary);"></div>
-                  <span>DUAL THRUSTER ARRAY</span>
-                </div>
-              </div>
-
-              <div style="margin-top: 1.5rem;">
-                <button id="testFireBtn" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
-                  <span>TEST FIRE CANNONS</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Ship Stats & Controls -->
-            <div class="ship-specs-container">
-              <h3>STRIKER MK-IV</h3>
-              <span class="ship-class-tag">MULTI-ROLE COMBAT CHASSIS</span>
-              <p class="ship-overview-desc">
-                Balanced combat craft tuned for dogfights, high-g turns, and rapid depot intercepts. 
-                Features auto-regenerating shield matrices and high-velocity plasma weaponry.
-              </p>
-
-              <div class="specs-meter-list">
-                <!-- Hull -->
-                <div class="spec-meter">
-                  <div class="meter-header">
-                    <span>HULL ARMOR INTEGRITY</span>
-                    <strong>100 HP</strong>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-fill" style="width: 100%;"></div>
-                  </div>
-                </div>
-
-                <!-- Shields -->
-                <div class="spec-meter">
-                  <div class="meter-header">
-                    <span>KINETIC SHIELD BARRIER</span>
-                    <strong>60 SP (25 SP/s regen, 3.0s delay)</strong>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-fill" style="width: 60%; background: linear-gradient(90deg, #0098ab, #00f0ff);"></div>
-                  </div>
-                </div>
-
-                <!-- Cruise Speed -->
-                <div class="spec-meter">
-                  <div class="meter-header">
-                    <span>CRUISING VELOCITY</span>
-                    <strong>22 m/s (60 accel, 720°/s turn rate)</strong>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-fill" style="width: 55%;"></div>
-                  </div>
-                </div>
-
-                <!-- Boost Speed -->
-                <div class="spec-meter">
-                  <div class="meter-header">
-                    <span>AFTERBURNER OVERDRIVE</span>
-                    <strong>42 m/s (18 impulse, 2.5s cooldown)</strong>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-fill" style="width: 85%; background: linear-gradient(90deg, #ff6600, #ff9900);"></div>
-                  </div>
-                </div>
-
-                <!-- Weapon -->
-                <div class="spec-meter">
-                  <div class="meter-header">
-                    <span>TWIN PLASMA CANNONS</span>
-                    <strong>8 DMG / bolt · 75 m/s velocity · 0.11s cycle</strong>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-fill" style="width: 75%;"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Controls Breakdown -->
-              <div class="controls-breakdown">
-                <h4>SUPPORTED FLIGHT CONTROLS</h4>
-                <div class="controls-chips">
-                  <div class="control-chip"><strong>WASD:</strong> Ship-Relative Thrust</div>
-                  <div class="control-chip"><strong>MOUSE:</strong> Aim & Turret Fire</div>
-                  <div class="control-chip"><strong>SPACE:</strong> Tactical Boost</div>
-                  <div class="control-chip"><strong>GAMEPAD:</strong> Twin-Stick / Classic / Face-Move</div>
-                  <div class="control-chip"><strong>TAB:</strong> Live Scoreboard</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Downloads Hub (Primary User Requirement) -->
-    <section class="section downloads-section" id="downloads">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">CROSS-PLATFORM DISTRIBUTION</span>
-          <h2 class="section-title">Download Xenon Rift</h2>
-          <p class="section-desc">
-            Directly download the client and server packages for your operating system. 
-            All multiplayer builds natively connect to the official dedicated cluster at <code>game.xenonrift.com:7770</code>.
-          </p>
-        </div>
-
-        <div class="downloads-tabs">
-          <button class="tab-btn active" data-tab="mac">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
-            <span>macOS</span>
-          </button>
-
-          <button class="tab-btn" data-tab="ios">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            <span>iOS (iPhone & iPad)</span>
-          </button>
-
-          <button class="tab-btn" data-tab="linux">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-            <span>Linux Dedicated Server</span>
-          </button>
-
-          <button class="tab-btn" data-tab="source">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            <span>Source & GitHub</span>
-          </button>
-        </div>
-
-        <div class="downloads-container">
-          <!-- macOS Panel -->
-          <div class="tab-panel active" id="tab-mac">
-            <div class="download-detail-card">
-              <div class="download-detail-main">
-                <div class="download-detail-header">
-                  <div class="platform-badge-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
-                  </div>
-                  <div>
-                    <h3>macOS Universal Player</h3>
-                    <p>Client and Dedicated Server in one unified standalone application.</p>
-                  </div>
-                </div>
-
-                <ul class="download-specs-list">
-                  <li class="download-spec-item">
-                    <span>VERSION</span>
-                    <strong>v0.3.0 (Milestone 3 / Phase 1)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>PACKAGE SIZE</span>
-                    <strong>~108 MB (.zip archive)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>ARCHITECTURE</span>
-                    <strong>Apple Silicon (M1/M2/M3/M4) & Intel</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>REQUIREMENTS</span>
-                    <strong>macOS 12 Monterey or newer</strong>
-                  </li>
-                </ul>
-
-                <div class="download-actions-row">
-                  <a href="https://github.com/codersbrew/xenonrift/releases/latest/download/XenonRift-mac.zip" download="XenonRift-mac.zip" class="btn btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    <span>Download XenonRift-mac.zip</span>
-                  </a>
-
-                  <a href="https://github.com/codersbrew/xenonrift/releases" target="_blank" rel="noopener" class="btn btn-secondary">
-                    <span>GitHub Releases</span>
-                  </a>
-                </div>
-
-                <div class="download-instruction-box">
-                  <div class="instruction-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                    <span>macOS Gatekeeper First-Launch Tip</span>
-                  </div>
-                  <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
-                    Because development builds are self-signed, macOS Gatekeeper may show an untrusted warning. Right-click the app and choose <strong>Open</strong>, or run this quick command in Terminal:
-                  </p>
-                  <div class="code-snippet">
-                    <code>xattr -dr com.apple.quarantine XenonRift.app</code>
-                    <button class="copy-btn copy-trigger" data-copy="xattr -dr com.apple.quarantine XenonRift.app">COPY</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sidebar Guide -->
-              <div class="download-sidebar-guide">
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 01</span>
-                  <div class="step-title">Extract the Archive</div>
-                  <p class="step-desc">Unzip <code>XenonRift-mac.zip</code> to your Applications or preferred games folder.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 02</span>
-                  <div class="step-title">Choose Play Mode</div>
-                  <p class="step-desc">Double-click to open the main menu. Select <strong>Practice vs Bots</strong> or <strong>Join Server</strong>.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 03</span>
-                  <div class="step-title">Run Headless Server</div>
-                  <p class="step-desc">Launch with <code>-server</code> flag to instantly host a 10v10 dedicated server process on port 7770.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- iOS Panel -->
-          <div class="tab-panel" id="tab-ios">
-            <div class="download-detail-card">
-              <div class="download-detail-main">
-                <div class="download-detail-header">
-                  <div class="platform-badge-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                  </div>
-                  <div>
-                    <h3>iOS for iPhone & iPad</h3>
-                    <p>High-refresh 60 FPS mobile client for iOS devices.</p>
-                  </div>
-                </div>
-
-                <ul class="download-specs-list">
-                  <li class="download-spec-item">
-                    <span>BUNDLE ID</span>
-                    <strong>com.codersbrew.xenonrift</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>CONTROLLER</span>
-                    <strong style="color: var(--status-warning);">Required (Bluetooth Gamepad)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>SUPPORTED DEVICES</span>
-                    <strong>iPhone & iPad (iOS 16.0+)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>NETWORK PERMISSION</span>
-                    <strong>Local Network Access (LAN)</strong>
-                  </li>
-                </ul>
-
-                <div class="download-actions-row">
-                  <a href="https://testflight.apple.com" target="_blank" rel="noopener" class="btn btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span>Request TestFlight Beta Access</span>
-                  </a>
-
-                  <a href="#manual" class="btn btn-secondary">
-                    <span>Gamepad Controls Guide</span>
-                  </a>
-                </div>
-
-                <div class="download-instruction-box">
-                  <div class="instruction-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                    <span>Developer Sideload & Local Install</span>
-                  </div>
-                  <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
-                    For developers testing directly via Xcode and USB/Wi-Fi deployment, use the automated build tool:
-                  </p>
-                  <div class="code-snippet">
-                    <code>Tools/ios-build.sh</code>
-                    <button class="copy-btn copy-trigger" data-copy="Tools/ios-build.sh">COPY</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sidebar Guide -->
-              <div class="download-sidebar-guide">
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 01</span>
-                  <div class="step-title">Pair a Game Controller</div>
-                  <p class="step-desc">Pair Xbox, PlayStation DualSense, Switch Pro, or MFi controller via iOS <strong>Settings → Bluetooth</strong>.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 02</span>
-                  <div class="step-title">Allow Local Network</div>
-                  <p class="step-desc">When prompted on first launch, allow <strong>Local Network</strong> access to discover LAN game servers.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 03</span>
-                  <div class="step-title">Join Online Server</div>
-                  <p class="step-desc">Enter <code>game.xenonrift.com</code> or your local server IP in the main menu to deploy.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Linux Dedicated Server Panel -->
-          <div class="tab-panel" id="tab-linux">
-            <div class="download-detail-card">
-              <div class="download-detail-main">
-                <div class="download-detail-header">
-                  <div class="platform-badge-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                  </div>
-                  <div>
-                    <h3>Linux Dedicated Server</h3>
-                    <p>Stripped graphics & headless binary for cloud host deployment.</p>
-                  </div>
-                </div>
-
-                <ul class="download-specs-list">
-                  <li class="download-spec-item">
-                    <span>BINARY NAME</span>
-                    <strong>XenonRiftServer.x86_64</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>PACKAGE SIZE</span>
-                    <strong>~32 MB (.tar.gz archive)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>DEFAULT PORT</span>
-                    <strong>UDP 7770 (Tugboat / LiteNetLib)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>SERVER TICK RATE</span>
-                    <strong>60 Hz Fixed Simulation</strong>
-                  </li>
-                </ul>
-
-                <div class="download-actions-row">
-                  <a href="https://github.com/codersbrew/xenonrift/releases/latest/download/xenonrift-server-linux.tar.gz" download="xenonrift-server-linux.tar.gz" class="btn btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    <span>Download Server Tarball (.tar.gz)</span>
-                  </a>
-
-                  <a href="https://github.com/codersbrew/xenonrift/releases" target="_blank" rel="noopener" class="btn btn-secondary">
-                    <span>GitHub Releases</span>
-                  </a>
-                </div>
-
-                <div class="download-instruction-box">
-                  <div class="instruction-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                    <span>Automated Deployment Script</span>
-                  </div>
-                  <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
-                    Deploy, build, configure systemd, and stream live remote logs with a single command:
-                  </p>
-                  <div class="code-snippet">
-                    <code>./Tools/deploy-server.sh -t ubuntu@your-server-ip --setup-service</code>
-                    <button class="copy-btn copy-trigger" data-copy="./Tools/deploy-server.sh -t ubuntu@your-server-ip --setup-service">COPY</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sidebar Guide -->
-              <div class="download-sidebar-guide">
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 01</span>
-                  <div class="step-title">Firewall Configuration</div>
-                  <p class="step-desc">Allow inbound UDP traffic on port 7770 (e.g. <code>sudo ufw allow 7770/udp</code>).</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 02</span>
-                  <div class="step-title">Extract to /opt/xenonrift</div>
-                  <p class="step-desc">Create dedicated system user <code>xenonrift</code> and set directory ownership.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 03</span>
-                  <div class="step-title">Start Systemd Service</div>
-                  <p class="step-desc">Enable auto-restart on boot: <code>sudo systemctl enable --now xenonrift</code>.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Source & GitHub Panel -->
-          <div class="tab-panel" id="tab-source">
-            <div class="download-detail-card">
-              <div class="download-detail-main">
-                <div class="download-detail-header">
-                  <div class="platform-badge-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  </div>
-                  <div>
-                    <h3>GitHub Repository & Engine Specs</h3>
-                    <p>Contribute, audit netcode, or inspect the Unity project architecture.</p>
-                  </div>
-                </div>
-
-                <ul class="download-specs-list">
-                  <li class="download-spec-item">
-                    <span>UNITY VERSION</span>
-                    <strong>6000.3.25f1 (Unity 6.3 LTS)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>NETWORKING</span>
-                    <strong>FishNet 4.7.3 (Git Tag)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>RENDER PIPELINE</span>
-                    <strong>Universal Render Pipeline (URP 17.3)</strong>
-                  </li>
-                  <li class="download-spec-item">
-                    <span>INPUT SYSTEM</span>
-                    <strong>Unity Input System 1.20</strong>
-                  </li>
-                </ul>
-
-                <div class="download-actions-row">
-                  <a href="https://github.com/codersbrew/xenonrift" target="_blank" rel="noopener" class="btn btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span>View on GitHub: codersbrew/xenonrift</span>
-                  </a>
-                </div>
-
-                <div class="download-instruction-box">
-                  <div class="instruction-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                    <span>Clone Repository</span>
-                  </div>
-                  <div class="code-snippet">
-                    <code>git clone https://github.com/codersbrew/xenonrift.git</code>
-                    <button class="copy-btn copy-trigger" data-copy="git clone https://github.com/codersbrew/xenonrift.git">COPY</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sidebar Guide -->
-              <div class="download-sidebar-guide">
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 01</span>
-                  <div class="step-title">Open in Unity Hub</div>
-                  <p class="step-desc">Add the cloned repository with Unity 6000.3.25f1 LTS.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 02</span>
-                  <div class="step-title">Packages Resolution</div>
-                  <p class="step-desc">Unity will automatically resolve FishNet 4.7.3 and URP dependencies on first launch.</p>
-                </div>
-                <div class="sidebar-step">
-                  <span class="step-num">STEP 03</span>
-                  <div class="step-title">Batch Test Commands</div>
-                  <p class="step-desc">Run headless smoke tests via <code>Tools/multiplayer-smoke-test.sh</code>.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery & Concept Art Showcase -->
-    <section class="section" id="gallery">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">VISUAL ARCHIVES</span>
-          <h2 class="section-title">In-Game Action & Concept Art</h2>
-          <p class="section-desc">
-            Explore captures directly from live multiplayer dogfights and architectural concept artwork from the Rift War war room.
-          </p>
+          <h2 class="section-title">Visuals</h2>
+          <p class="section-desc">In-game captures from the Xenon Outpost combat zone.</p>
         </div>
 
         <div class="gallery-grid">
-          <!-- Key Art Option 1 -->
-          <div class="gallery-card" data-full="/images/hero/option1_quantum_event_horizon.jpg" data-title="Key Art Option 1: Quantum Event Horizon" data-desc="Evolved key art & title logo with concentric orbital rings, cosmic singularity event horizon, arcing plasma lightning, and interceptor formation.">
-            <img src="/images/hero/option1_quantum_event_horizon.jpg" alt="Option 1: Quantum Event Horizon" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">KEY ART OPTION 01</span>
-              <div class="gallery-title">Quantum Event Horizon & Rings</div>
-            </div>
+          <div class="gallery-item" data-full="/images/hero/hero_key_art.jpg">
+            <img src="/images/hero/hero_key_art.jpg" alt="Quantum Event Horizon Key Art" loading="lazy">
+            <div class="gallery-caption">Quantum Event Horizon Key Art</div>
           </div>
 
-          <!-- Key Art Option 2 -->
-          <div class="gallery-card" data-full="/images/hero/option2_faction_war_collision.jpg" data-title="Key Art Option 2: Faction War Collision" data-desc="Clashing celestial worlds: Cyan Vanguard ice lightning vs Ember Syndicate solar flares across a dimensional rift, with interceptor dogfights and dual-faction compass emblem.">
-            <img src="/images/hero/option2_faction_war_collision.jpg" alt="Option 2: Faction War Collision" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">KEY ART OPTION 02</span>
-              <div class="gallery-title">Faction War Dualism (Cyan vs Ember)</div>
-            </div>
+          <div class="gallery-item" data-full="/images/screenshots/00_overview.png">
+            <img src="/images/screenshots/00_overview.png" alt="Xenon Outpost Arena" loading="lazy">
+            <div class="gallery-caption">Xenon Outpost (320x200 Arena)</div>
           </div>
 
-          <!-- Key Art Option 3 -->
-          <div class="gallery-card" data-full="/images/hero/option3_deep_void_tactical_outpost.jpg" data-title="Key Art Option 3: Deep Void Tactical Outpost" data-desc="Orbital stronghold Xenon Outpost illuminated in deep void space with patrolling combat fleet, crystal asteroid fields, and aerospace-grade military logo.">
-            <img src="/images/hero/option3_deep_void_tactical_outpost.jpg" alt="Option 3: Deep Void Tactical Outpost" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">KEY ART OPTION 03</span>
-              <div class="gallery-title">Xenon Outpost Tactical Stronghold</div>
-            </div>
+          <div class="gallery-item" data-full="/images/screenshots/02_combat.png">
+            <img src="/images/screenshots/02_combat.png" alt="Close-Quarters Dogfight" loading="lazy">
+            <div class="gallery-caption">Fleet Combat Engagement</div>
           </div>
 
-          <!-- Item 1: Overview -->
-          <div class="gallery-card" data-full="/images/screenshots/00_overview.png" data-title="Orbital Arena Overview" data-desc="The full 320x200 Xenon Outpost combat arena featuring dense asteroid fields, mirrored wrecks, and central fleet lanes.">
-            <img src="/images/screenshots/00_overview.png" alt="Xenon Outpost Overview" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">IN-GAME SCREENSHOT</span>
-              <div class="gallery-title">Xenon Outpost (320x200 Arena)</div>
-            </div>
-          </div>
-
-          <!-- Item 2: Spawn -->
-          <div class="gallery-card" data-full="/images/screenshots/01_spawn.png" data-title="Vanguard Fleet Spawn" data-desc="Cyan Vanguard fleet lining up at the West base perimeter with temporary spawn invulnerability shields active.">
-            <img src="/images/screenshots/01_spawn.png" alt="Fleet Spawn" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">IN-GAME SCREENSHOT</span>
-              <div class="gallery-title">Fleet Deployment & Spawn Columns</div>
-            </div>
-          </div>
-
-          <!-- Item 3: Combat -->
-          <div class="gallery-card" data-full="/images/screenshots/02_combat.png" data-title="Close-Quarters Dogfight" data-desc="High-speed combat engagement with plasma cannon fire exchanges and radar tracking overlay.">
-            <img src="/images/screenshots/02_combat.png" alt="Combat Dogfight" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">IN-GAME SCREENSHOT</span>
-              <div class="gallery-title">Close-Quarters Fleet Engagement</div>
-            </div>
-          </div>
-
-          <!-- Item 4: Explosion -->
-          <div class="gallery-card" data-full="/images/screenshots/03_explosion.png" data-title="Hull Detonation" data-desc="Kinetic weapon impact breaching enemy shields, causing catastrophic reactor detonation.">
-            <img src="/images/screenshots/03_explosion.png" alt="Hull Explosion" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">IN-GAME SCREENSHOT</span>
-              <div class="gallery-title">Vessel Detonation & Debris</div>
-            </div>
-          </div>
-
-          <!-- Item 5: Boost -->
-          <div class="gallery-card" data-full="/images/screenshots/04_boost.png" data-title="Afterburner Vectoring" data-desc="Striker vessel initiating 42 m/s afterburner burn through asteroid flank cover.">
-            <img src="/images/screenshots/04_boost.png" alt="Afterburner Boost" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">IN-GAME SCREENSHOT</span>
-              <div class="gallery-title">Tactical Boost Maneuver</div>
-            </div>
-          </div>
-
-          <!-- Item 6: Scoreboard -->
-          <div class="gallery-card" data-full="/images/screenshots/07_scoreboard.png" data-title="Tab Scoreboard Telemetry" data-desc="In-match scoreboard showing real-time kills, deaths, ping, and bot backfill status.">
-            <img src="/images/screenshots/07_scoreboard.png" alt="Scoreboard Telemetry" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">IN-GAME SCREENSHOT</span>
-              <div class="gallery-title">Tactical Scoreboard & Telemetry</div>
-            </div>
-          </div>
-
-          <!-- Item 7: Concept Hangar -->
-          <div class="gallery-card" data-full="/images/concepts/01_Orbital_Hangar.jpg" data-title="Orbital Hangar Bay" data-desc="Concept art depicting the deep-space staging hangar for Striker vessels prior to rift sortie.">
-            <img src="/images/concepts/01_Orbital_Hangar.jpg" alt="Orbital Hangar Bay Concept" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">CONCEPT ART</span>
-              <div class="gallery-title">Orbital Staging Hangar</div>
-            </div>
-          </div>
-
-          <!-- Item 8: Concept War Room -->
-          <div class="gallery-card" data-full="/images/concepts/07_Galactic_War_Room_MetaMap.jpg" data-title="Galactic War Room Meta Map" data-desc="The tactical map room where admirals monitor territory control across all 15 contested star systems.">
-            <img src="/images/concepts/07_Galactic_War_Room_MetaMap.jpg" alt="Galactic War Room" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">CONCEPT ART</span>
-              <div class="gallery-title">Galactic War Room Hologram</div>
-            </div>
-          </div>
-
-          <!-- Item 9: Concept Rift Horizon -->
-          <div class="gallery-card" data-full="/images/concepts/03_Rift_Horizon.jpg" data-title="Xenon Rift Horizon" data-desc="Visualizing the gravitational event horizon of a collapsing xenon core in deep orbit.">
-            <img src="/images/concepts/03_Rift_Horizon.jpg" alt="Rift Horizon" class="gallery-thumb" loading="lazy">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">CONCEPT ART</span>
-              <div class="gallery-title">Dimensional Rift Horizon</div>
-            </div>
+          <div class="gallery-item" data-full="/images/screenshots/07_scoreboard.png">
+            <img src="/images/screenshots/07_scoreboard.png" alt="Tactical Scoreboard" loading="lazy">
+            <div class="gallery-caption">Match Telemetry & Scoreboard</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Dedicated Server & Quick Connect Section -->
-    <section class="section" id="server" style="background: rgba(8, 12, 26, 0.4);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">MULTIPLAYER INFRASTRUCTURE</span>
-          <h2 class="section-title">Join or Host a Dedicated Server</h2>
-          <p class="section-desc">
-            Connect to the official persistent war room or spin up your own community dedicated server.
-          </p>
-        </div>
-
-        <div class="server-architecture-grid">
-          <!-- Connect Card -->
-          <div class="server-info-card server-connect-guide">
-            <h3>Connect to Official Server</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">
-              The official dedicated server operates 24/7 on high-performance infrastructure with low latency routing across North America and Europe.
-            </p>
-
-            <ul class="connect-steps-list">
-              <li class="connect-step">
-                <span class="connect-step-badge">1</span>
-                <div>
-                  <strong style="color: #ffffff;">Launch the Client</strong>
-                  <p>Open Xenon Rift on macOS or iOS.</p>
-                </div>
-              </li>
-              <li class="connect-step">
-                <span class="connect-step-badge">2</span>
-                <div>
-                  <strong style="color: #ffffff;">Enter Call Sign & Faction</strong>
-                  <p>Input your pilot call sign and select Cyan Vanguard, Ember Syndicate, or Balance Me.</p>
-                </div>
-              </li>
-              <li class="connect-step">
-                <span class="connect-step-badge">3</span>
-                <div>
-                  <strong style="color: #ffffff;">Set Address & Join</strong>
-                  <p>Verify server address is set to <code>game.xenonrift.com:7770</code> and click <strong>Join Server</strong>.</p>
-                </div>
-              </li>
-            </ul>
-
-            <div class="instruction-title" style="margin-top: 1.5rem;">CLI Quick Connect (macOS)</div>
-            <div class="code-snippet">
-              <code>"Builds/macOS/XenonRift.app/Contents/MacOS/Xenon Rift" -connect game.xenonrift.com -port 7770 -faction cyan -name Maverick</code>
-              <button class="copy-btn copy-trigger" data-copy="&quot;Builds/macOS/XenonRift.app/Contents/MacOS/Xenon Rift&quot; -connect game.xenonrift.com -port 7770 -faction cyan -name Maverick">COPY</button>
-            </div>
-          </div>
-
-          <!-- Host Card -->
-          <div class="server-info-card server-host-guide">
-            <h3>Host Your Own Dedicated Server</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">
-              Anyone can host a community dedicated server on macOS or Linux. Dedicated servers run completely headless without graphics rendering.
-            </p>
-
-            <div class="instruction-title" style="margin-top: 1.5rem;">macOS Headless Server</div>
-            <div class="code-snippet">
-              <code>"XenonRift.app/Contents/MacOS/Xenon Rift" -batchmode -nographics -server -port 7770 -teamsize 10</code>
-              <button class="copy-btn copy-trigger" data-copy="&quot;XenonRift.app/Contents/MacOS/Xenon Rift&quot; -batchmode -nographics -server -port 7770 -teamsize 10">COPY</button>
-            </div>
-
-            <div class="instruction-title" style="margin-top: 1.5rem;">Linux Server (x86_64)</div>
-            <div class="code-snippet">
-              <code>./XenonRiftServer.x86_64 -port 7770 -teamsize 10 -statuslog 30</code>
-              <button class="copy-btn copy-trigger" data-copy="./XenonRiftServer.x86_64 -port 7770 -teamsize 10 -statuslog 30">COPY</button>
-            </div>
-
-            <div class="instruction-title" style="margin-top: 1.5rem;">Key Server Command-Line Arguments</div>
-            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); background: #04060d; padding: 1rem; border-radius: 4px; border: 1px solid var(--border-subtle); line-height: 1.8;">
-              <div><strong style="color: var(--cyan-primary);">-port &lt;n&gt;:</strong> UDP game port (default: 7770)</div>
-              <div><strong style="color: var(--cyan-primary);">-teamsize &lt;1-10&gt;:</strong> Ships per faction (default: 10, for 10v10)</div>
-              <div><strong style="color: var(--cyan-primary);">-mode &lt;tdm|depot|ovd&gt;:</strong> Pin specific match mode (optional)</div>
-              <div><strong style="color: var(--cyan-primary);">-statuslog &lt;s&gt;:</strong> Log status interval in seconds</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Minimal Footer -->
     <footer class="site-footer">
       <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <h4>XENON RIFT</h4>
-            <p>
-              A fast-paced, competitive top-down multiplayer space arena shooter built on Unity 6 with server-authoritative netcode.
-            </p>
-          </div>
-
-          <div class="footer-col">
-            <h5>Platforms</h5>
-            <ul class="footer-links">
-              <li><a href="#downloads">macOS Player</a></li>
-              <li><a href="#downloads">iOS (iPhone & iPad)</a></li>
-              <li><a href="#downloads">Linux Dedicated Server</a></li>
-              <li><a href="#manual">Gamepad & KBM Controls</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h5>Community & Code</h5>
-            <ul class="footer-links">
-              <li><a href="https://github.com/codersbrew/xenonrift" target="_blank" rel="noopener">GitHub Repository</a></li>
-              <li><a href="#server">Official Server</a></li>
-              <li><a href="#modes">Rift War Rules</a></li>
-              <li><a href="#gallery">Media Gallery</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h5>Infrastructure</h5>
-            <ul class="footer-links">
-              <li><span>Host: game.xenonrift.com</span></li>
-              <li><span>Transport: FishNet UDP 7770</span></li>
-              <li><span>Physics Tick: 60 Hz</span></li>
-              <li><span>Engine: Unity 6000.3 LTS</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
+        <div class="footer-content">
           <div>
-            &copy; 2026 <strong style="color: #ffffff;">Xenon Rift</strong> · Developed by <a href="https://github.com/codersbrew" target="_blank" rel="noopener" style="color: var(--cyan-primary); text-decoration: none;">CodersBrew</a>.
+            &copy; 2026 <strong style="color: #ffffff;">Xenon Rift</strong> · Built by <a href="https://github.com/codersbrew" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: none;">CodersBrew</a>
           </div>
-          <div class="footer-domain">
-            OFFICIAL PORTAL: <strong>xenonrift.com</strong>
-          </div>
+
+          <ul class="footer-links">
+            <li><a href="https://github.com/codersbrew/xenonrift" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://github.com/codersbrew/xenonrift/releases" target="_blank" rel="noopener">Releases</a></li>
+            <li><a href="#overview">xenonrift.com</a></li>
+          </ul>
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- Lightbox Modal -->
+  <!-- Minimal Lightbox -->
   <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
-      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous Image">&#10094;</button>
-      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next Image">&#10095;</button>
-
-      <img src="" alt="" class="lightbox-image" id="lightboxImage">
-      <div class="lightbox-caption" id="lightboxTitle"></div>
-      <div class="lightbox-desc" id="lightboxDesc"></div>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
     </div>
   </div>
 
