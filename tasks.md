@@ -79,3 +79,4 @@
 - [x] Push to GitHub remote and enable GitHub Pages under Actions mode
 - [x] Configure DNS A and CNAME records at domain registrar for `xenonrift.com` (Resolved & Active)
 - [x] Enforce HTTPS on `xenonrift.com` via GitHub Pages SSL certificate
+- [x] Streamline downloads to client-only (macOS & iOS) and remove Linux dedicated server card
