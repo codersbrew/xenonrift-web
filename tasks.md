@@ -76,5 +76,6 @@
 - [x] Create automated GitHub Actions workflow (`.github/workflows/deploy.yml`)
 - [x] Initialize Git repository and create clean initial commit on `main`
 - [x] Point game downloads to official GitHub Releases asset URLs
-- [ ] Push to GitHub remote and enable GitHub Pages under Actions mode
-- [ ] Configure DNS A and CNAME records at domain registrar for `xenonrift.com`
+- [x] Push to GitHub remote and enable GitHub Pages under Actions mode
+- [x] Configure DNS A and CNAME records at domain registrar for `xenonrift.com` (Resolved & Active)
+- [x] Enforce HTTPS on `xenonrift.com` via GitHub Pages SSL certificate
