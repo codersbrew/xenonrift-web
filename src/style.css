@@ -29,8 +29,8 @@ img { display: block; max-width: 100%; height: auto; }
 .skip-link:focus { transform: translateY(0); }
 .site-header { position: sticky; top: 0; z-index: 30; background: rgba(7, 10, 16, .94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
 .navbar { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font: 700 1rem var(--display); letter-spacing: .13em; white-space: nowrap; }
-.brand svg { width: 38px; height: 38px; color: var(--cyan); }
+.brand { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; flex-shrink: 0; }
+.brand-wordmark { width: 250px; height: auto; }
 nav { display: flex; gap: 2rem; }
 nav a { font-size: .9rem; color: var(--muted); text-decoration: none; padding-block: .7rem; }
 nav a:hover, .footer-content a:hover { color: var(--cyan); }
@@ -161,7 +161,7 @@ td { color: var(--muted); }
 .closing-section h2 { font-size: clamp(2.3rem, 5vw, 4rem); margin-block: 1rem 2rem; }
 .site-footer { border-top: 1px solid var(--line); padding-block: 2rem; background: var(--bg); }
 .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-.footer-content .brand { font-size: .8rem; }
+.footer-content .brand-wordmark { width: 210px; }
 .footer-content p, .footer-content > a:last-child { font-size: .75rem; color: var(--muted); }
 .lightbox { width: min(1400px, 94vw); max-width: 94vw; max-height: 94dvh; padding: 1rem; border: 1px solid var(--line); background: #070a10; color: var(--text); }
 .lightbox::backdrop { background: rgba(0, 0, 0, .9); }
@@ -204,8 +204,7 @@ td { color: var(--muted); }
   html { scroll-padding-top: 8rem; }
   .container { width: calc(100% - 2rem); }
   .navbar { flex-wrap: wrap; gap: 0 .75rem; padding-top: .65rem; padding-bottom: .4rem; }
-  .brand { font-size: .8rem; gap: .5rem; }
-  .brand svg { width: 30px; height: 30px; }
+  .navbar .brand-wordmark { width: clamp(150px, 45vw, 200px); }
   .navbar .btn { font-size: .75rem; min-height: 44px; padding: .35rem .7rem; gap: .6rem; }
   nav { order: 3; width: 100%; justify-content: center; gap: 2rem; }
   nav a { font-size: .8rem; padding-block: .5rem; }
