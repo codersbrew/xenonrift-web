@@ -38,7 +38,21 @@ python3 -m venv /tmp/xenonrift-web-images
 /tmp/xenonrift-web-images/bin/python tools/prepare-branding.py ../xenonrift
 ```
 
-Script crops ship-only renders and exports responsive WebP captures to `public/images/ships/` and `public/images/gameplay/`. Original game files are untouched. Existing concept artwork is retained, but not labeled as gameplay.
+Script crops ship-only renders and exports responsive WebP captures to `public/images/ships/` and `public/images/gameplay/`. Original game assets are untouched. Existing concept artwork is retained, but not labeled as gameplay.
+
+### Refresh ships after a game model change
+
+`Logs/Screenshots/ship_*.png` are cached review renders, **not live prefab previews**. Re-exporting them alone can publish obsolete ships. Close the game Editor, then render current prefabs before exporting (graphics required; do not add `-nographics`):
+
+```sh
+U=/Applications/Unity/Hub/Editor/6000.3.25f1/Unity.app/Contents/MacOS/Unity
+"$U" -batchmode -projectPath "$PWD/../xenonrift" \
+  -executeMethod XenonRift.EditorTools.XenonOutpostBuilder.CaptureShipClassesFromCommandLine \
+  -logFile Logs/web-ship-capture.log
+/tmp/xenonrift-web-images/bin/python tools/prepare-images.py ../xenonrift --ships-only
+```
+
+Capture method uses a temporary scene and exits Unity without saving assets. Ship exports currently use game revision `70f2e86` (Interceptor, tactical Striker, siege Dreadnought), cropped from 1600×900 three-quarter renders to `(430, 200, 1150, 740)`. Review all three silhouettes against current game prefabs before publishing; adjust crop if new geometry extends beyond it. Cards preserve full 4:3 images on desktop and mobile. `tests/ships.spec.js` pins reviewed WebP hashes; update them only after reviewing refreshed renders.
 
 Branding uses lettering extracted from the game's `Assets/XenonRift/Art/UI/XenonRift_KeyArt.png`. The game has no standalone transparent wordmark, so `prepare-branding.py` masks the flattened art, retaining original RGB bevels/neon colors. Header and footer share this asset; browser and Apple touch icons use its original X. Do not replace it with a substitute font or unrelated orbital icon. Review masks if source artwork changes.
 
