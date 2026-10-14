@@ -35,9 +35,12 @@ Source captures live in sibling game project, `../xenonrift/Logs/Screenshots/`.
 python3 -m venv /tmp/xenonrift-web-images
 /tmp/xenonrift-web-images/bin/pip install Pillow
 /tmp/xenonrift-web-images/bin/python tools/prepare-images.py ../xenonrift
+/tmp/xenonrift-web-images/bin/python tools/prepare-branding.py ../xenonrift
 ```
 
 Script crops ship-only renders and exports responsive WebP captures to `public/images/ships/` and `public/images/gameplay/`. Original game files are untouched. Existing concept artwork is retained, but not labeled as gameplay.
+
+Branding uses lettering extracted from the game's `Assets/XenonRift/Art/UI/XenonRift_KeyArt.png`. The game has no standalone transparent wordmark, so `prepare-branding.py` masks the flattened art, retaining original RGB bevels/neon colors. Header and footer share this asset; browser and Apple touch icons use its original X. Do not replace it with a substitute font or unrelated orbital icon. Review masks if source artwork changes.
 
 ## Deployment
 
