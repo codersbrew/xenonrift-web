@@ -3,8 +3,11 @@ node_modules/
 .pnp
 .pnp.js
 
-# Production build output
+# Production build and browser artifacts
 dist/
+.playwright-cli/
+playwright-report/
+test-results/
 
 # Local env files
 .env

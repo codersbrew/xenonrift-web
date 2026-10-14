@@ -1,14 +1,14 @@
 {
   "name": "Xenon Rift",
   "short_name": "Xenon Rift",
-  "description": "Multiplayer Persistent Sci-Fi Space Arena Shooter",
-  "start_url": "/",
+  "description": "Top-down space arena combat — in development for Mac and iOS",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#060810",
-  "theme_color": "#00f0ff",
+  "background_color": "#070a10",
+  "theme_color": "#070a10",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "./favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
