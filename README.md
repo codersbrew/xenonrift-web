@@ -1,60 +1,44 @@
-# Xenon Rift Landing Website (`xenonrift.com`)
+# Xenon Rift landing page
 
-The official landing website and distribution portal for **Xenon Rift**, a persistent top-down multiplayer space arena shooter built with Unity 6 (URP) and FishNet dedicated server networking.
+Consumer-facing site for [xenonrift.com](https://xenonrift.com/). Static Vite site; GitHub Pages deploys `main`.
 
-Domain: **[xenonrift.com](https://xenonrift.com)**  
-Game Reference: `~/projects/xenonrift` (`https://github.com/codersbrew/xenonrift`)
-
----
-
-## Features
-
-- **Cool Sci-Fi Aesthetic:**
-  - Interactive multi-layer Canvas Starfield with mouse parallax and Warp Hyperdrive mode.
-  - Web Audio API procedural sound synthesizer (subtle UI clicks, laser bolts, and warp hum with persistent mute toggle).
-  - Glowing HUD styling with angled chamfers, tactical targeting reticles, scanline overlays, and neon faction accents (Cyan Vanguard `#00f0ff` & Ember Syndicate `#ff6600`).
-- **Comprehensive Game Breakdown:**
-  - **Overview & Lore:** Persistent 10v10 battles, drop-in/drop-out matchmaking with intelligent bot backfill, and server-authoritative dedicated server at `game.xenonrift.com:7770`.
-  - **The Rift War Modes:** Team Deathmatch (100 kills), Capture the Depot (60s cumulative hold), and Offense vs Defense (20 shared life pool).
-  - **Faction Showcase:** Cyan Vanguard vs Ember Syndicate philosophies, colors, and combat doctrines.
-  - **Interactive Flight Manual:** "Striker" vessel specs (Hull, Shields, Cruising speed, Afterburner boost, Twin Plasma Cannons) with an interactive schematic and live cannon test-fire simulator.
-  - **Visual Gallery:** High-resolution in-game screenshots and concept art with keyboard-navigable Lightbox viewer.
-- **Cross-Platform Downloads Hub:**
-  - **macOS:** Direct download for `XenonRift-mac.zip` (client & server in one universal app), Gatekeeper tips (`xattr -dr com.apple.quarantine XenonRift.app`).
-  - **iOS (iPhone & iPad):** TestFlight beta request, controller requirements (Bluetooth Xbox, DualSense, Switch Pro, MFi), local network permission notes, and automated Xcode deploy script (`Tools/ios-build.sh`).
-  - **Linux Dedicated Server:** Direct download for `xenonrift-server-linux.tar.gz`, systemd service unit snippet, and automated deploy script (`Tools/deploy-server.sh`).
-  - **Source Code:** GitHub repository reference (`codersbrew/xenonrift`).
-- **Server Infrastructure Guide:**
-  - Quick connect guide to official cluster: `game.xenonrift.com:7770`.
-  - Copyable CLI command snippets and self-hosting instructions.
-
----
-
-## Quick Start (Development)
+## Develop & test
 
 ```sh
-# Install dependencies
-npm install
-
-# Start local dev server (default: http://localhost:5173)
+npm ci
 npm run dev
-
-# Build production bundle into dist/
 npm run build
-
-# Preview production build locally (default: http://localhost:4173)
-npm run preview
+npx playwright install chromium
+npm test
 ```
 
----
+Node 22.12+ recommended. Tests run against production preview on port 4173, on desktop and mobile Chromium. Coverage includes local media, navigation, layout overflow, dialog keyboard/focus behavior, clipboard failure, platform disclosures, and reduced motion.
 
-## Production Deployment
+## Content rules
 
-The project builds into a completely static distribution folder (`dist/`) with zero backend dependencies:
+- Lead with gameplay and player choices, not engine/network implementation.
+- Online arenas, offline practice, and experimental offline Rift War are separate experiences.
+- Galaxy is session-only; shared online persistence is not available yet.
+- iOS gameplay requires a Bluetooth controller; no touch flight controls yet.
+- No public Mac release or TestFlight invite existed when this page was updated. Do not link to private game releases or generic TestFlight pages.
+- Playtest CTAs open email to the developer's public GitHub contact address. They do not enroll users or guarantee access.
+- Server address is setup information, not a health indicator.
+- Gameplay images are in-engine development captures. Ship art is rendered from current game models.
 
-1. **Deploying to Cloudflare Pages / Vercel / Netlify:**
-   - Build command: `npm run build`
-   - Output directory: `dist`
-2. **Deploying to Nginx / Caddy on `xenonrift.com`:**
-   - Point your web server root to the `dist/` directory.
-   - For direct game downloads, place `XenonRift-mac.zip` and `xenonrift-server-linux.tar.gz` in `dist/downloads/` (already configured via symlinks from `~/projects/xenonrift/Builds`).
+Before enabling direct downloads, verify anonymously accessible assets, matching server/client versions, signing/notarization, minimum OS/device support, version, release date, and file size. Update availability copy and regression tests together. Real gameplay video can replace the hero capture when footage is available; don't present a screenshot slideshow as gameplay video.
+
+## Refresh images
+
+Source captures live in sibling game project, `../xenonrift/Logs/Screenshots/`.
+
+```sh
+python3 -m venv /tmp/xenonrift-web-images
+/tmp/xenonrift-web-images/bin/pip install Pillow
+/tmp/xenonrift-web-images/bin/python tools/prepare-images.py ../xenonrift
+```
+
+Script crops ship-only renders and exports responsive WebP captures to `public/images/ships/` and `public/images/gameplay/`. Original game files are untouched. Existing concept artwork is retained, but not labeled as gameplay.
+
+## Deployment
+
+PR checks build and run browser tests. Pushes to `main` run the same checks, then publish `dist/` through `.github/workflows/deploy.yml`. No backend, email collection, or live-status service is included.

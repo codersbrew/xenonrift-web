@@ -3,254 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xenon Rift — Top-Down Multiplayer Space Arena Shooter</title>
-  
-  <!-- Meta & OpenGraph -->
-  <meta name="description" content="Xenon Rift is a persistent top-down multiplayer space arena shooter built on Unity 6. Two factions battle over dimensional rifts in 10v10 combat with dedicated servers. Available for macOS and iOS.">
-  <meta property="og:title" content="Xenon Rift — Multiplayer Space Arena Shooter">
-  <meta property="og:description" content="Persistent 10v10 space battles. Cyan Vanguard vs Ember Syndicate. Download for macOS and iOS.">
+  <title>Xenon Rift — Pick Your Faction. Fight for the Rift.</title>
+  <meta name="description" content="Pick your ship and fight for the Rift. Xenon Rift is a top-down space arena shooter with drop-in 10v10 combat, three ship classes, and offline bot practice. In development for Mac and iOS.">
+  <link rel="canonical" href="https://xenonrift.com/">
+  <meta property="og:title" content="Xenon Rift — Your faction. Your ship. Your fight.">
+  <meta property="og:description" content="Top-down space combat. Three ships. Two factions. One Rift worth fighting for. Explore the game and request a playtest.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://xenonrift.com">
-  <meta property="og:image" content="/images/hero/hero_key_art.jpg">
+  <meta property="og:url" content="https://xenonrift.com/">
+  <meta property="og:image" content="https://xenonrift.com/images/hero/hero_key_art.jpg">
+  <meta property="og:image:alt" content="Xenon Rift space combat concept art">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Xenon Rift — Space Arena Combat">
-  <meta name="twitter:description" content="High-stakes 10v10 top-down spaceship combat across dimensional rifts.">
-  <meta name="twitter:image" content="/images/hero/hero_key_art.jpg">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#06070a">
-
-  <!-- Clean Google Fonts -->
+  <meta name="twitter:title" content="Xenon Rift — Pick Your Faction. Fight for the Rift.">
+  <meta name="twitter:description" content="Drop-in 10v10 space combat and offline bot practice. In development for Mac and iOS.">
+  <meta name="twitter:image" content="https://xenonrift.com/images/hero/hero_key_art.jpg">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#070a10">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-  <!-- Ambient Space Canvas -->
-  <canvas id="starfield"></canvas>
-
-  <div class="content-wrapper">
-    <!-- Navbar -->
-    <header class="site-header">
-      <div class="container">
-        <nav class="navbar">
-          <a href="#" class="brand-link">
-            <svg class="brand-icon" viewBox="0 0 64 64" fill="none">
-              <defs>
-                <linearGradient id="navCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#00f0ff" />
-                  <stop offset="100%" stop-color="#0080ff" />
-                </linearGradient>
-                <linearGradient id="navViolet" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#d946ef" />
-                  <stop offset="100%" stop-color="#8b5cf6" />
-                </linearGradient>
-              </defs>
-              <ellipse cx="32" cy="32" rx="26" ry="17" stroke="url(#navCyan)" stroke-width="2.5" transform="rotate(-15 32 32)" />
-              <ellipse cx="32" cy="32" rx="18" ry="11" stroke="url(#navViolet)" stroke-width="2" transform="rotate(20 32 32)" />
-              <line x1="8" y1="32" x2="56" y2="32" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-              <circle cx="32" cy="32" r="3.5" fill="#ffffff" />
-            </svg>
-            <span class="brand-title">XENON RIFT</span>
-          </a>
-
-          <ul class="nav-links">
-            <li><a href="#overview" class="nav-link">Overview</a></li>
-            <li><a href="#features" class="nav-link">Features</a></li>
-            <li><a href="#downloads" class="nav-link">Downloads</a></li>
-            <li><a href="#visuals" class="nav-link">Visuals</a></li>
-          </ul>
-
-          <div class="nav-actions">
-            <a href="#downloads" class="nav-btn">Get the Game</a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section" id="overview">
-      <div class="container">
-        <div class="hero-tagline">
-          <div class="hero-tag-dot"></div>
-          <span>PERSISTENT FACTION WAR · 10v10 ARENA</span>
-        </div>
-
-        <h1 class="hero-title">XENON RIFT</h1>
-        <p class="hero-subtitle">
-          A top-down multiplayer space arena shooter. Two rival factions clash in persistent 10v10 battles with server-authoritative physics and territory siege modes.
-        </p>
-
-        <div class="hero-cta-group">
-          <a href="#downloads" class="btn btn-primary">Download Client</a>
-          <button class="btn btn-secondary copy-trigger" data-copy="game.xenonrift.com:7770">
-            <span>Server: game.xenonrift.com:7770</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          </button>
-        </div>
-
-        <!-- Hero Artwork -->
-        <div class="hero-art-container">
-          <img src="/images/hero/hero_key_art.jpg" alt="Xenon Rift — Quantum Event Horizon" class="hero-art-img">
-          <div class="hero-art-fade"></div>
-        </div>
-
-        <!-- Live Server Status Bar -->
-        <div class="server-bar">
-          <div class="server-dot"></div>
-          <span class="server-label">OFFICIAL SERVER</span>
-          <span class="server-host">game.xenonrift.com:7770</span>
-          <button class="copy-icon-btn copy-trigger" data-copy="game.xenonrift.com:7770" title="Copy Address">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Highlights Section -->
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Built for Tactical Combat</h2>
-          <p class="section-desc">Fast-paced, responsive spaceship dogfights inspired by classic top-down arena shooters.</p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-num">01 // ARENA</div>
-            <h3>Persistent 10v10 Battles</h3>
-            <p>
-              Jump into the Xenon Outpost anytime. Pilots seamlessly drop in and out by choosing Cyan Vanguard or Ember Syndicate. Intelligent bots automatically fill open slots so combat never stops.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-num">02 // MODES</div>
-            <h3>The Rift War</h3>
-            <p>
-              Back-to-back rotating competitive match modes: Team Deathmatch to 100 kills, Capture the Depot with cumulative 60-second hold times, and 20-life Asymmetric Defense.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-num">03 // NETCODE</div>
-            <h3>Dedicated Servers</h3>
-            <p>
-              Powered by FishNet over low-latency UDP. The server authoritatively runs ship physics and collision simulation at 60 Hz for consistent competitive integrity.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Downloads Section -->
-    <section class="section" id="downloads" style="background: rgba(10, 12, 18, 0.4);">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Downloads</h2>
-          <p class="section-desc">Download the client for your platform.</p>
-        </div>
-
-        <div class="downloads-grid">
-          <!-- macOS -->
-          <div class="download-card">
-            <div class="download-card-header">
-              <div class="download-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
-              </div>
-              <h3>macOS Player</h3>
-            </div>
-            <p class="download-card-desc">
-              Universal client build for Apple Silicon and Intel Macs. Includes single-player offline bot practice and online multiplayer.
-            </p>
-            <a href="https://github.com/codersbrew/xenonrift/releases/latest/download/XenonRift-mac.zip" class="btn btn-primary">
-              Download .zip
-            </a>
-            <span class="download-tip">macOS 12+ · Gatekeeper: Right-click & Open</span>
-          </div>
-
-          <!-- iOS -->
-          <div class="download-card">
-            <div class="download-card-header">
-              <div class="download-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              </div>
-              <h3>iOS (Mobile)</h3>
-            </div>
-            <p class="download-card-desc">
-              High-refresh 60 FPS mobile client for iPhone and iPad. Requires a paired Bluetooth controller (Xbox, DualSense, Switch Pro, or MFi).
-            </p>
-            <a href="https://testflight.apple.com" target="_blank" rel="noopener" class="btn btn-secondary">
-              TestFlight Beta
-            </a>
-            <span class="download-tip">iOS 16+ · Bluetooth Gamepad Required</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Visual Showcase -->
-    <section class="section" id="visuals">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Visuals</h2>
-          <p class="section-desc">In-game captures from the Xenon Outpost combat zone.</p>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item" data-full="/images/hero/hero_key_art.jpg">
-            <img src="/images/hero/hero_key_art.jpg" alt="Quantum Event Horizon Key Art" loading="lazy">
-            <div class="gallery-caption">Quantum Event Horizon Key Art</div>
-          </div>
-
-          <div class="gallery-item" data-full="/images/screenshots/00_overview.png">
-            <img src="/images/screenshots/00_overview.png" alt="Xenon Outpost Arena" loading="lazy">
-            <div class="gallery-caption">Xenon Outpost (320x200 Arena)</div>
-          </div>
-
-          <div class="gallery-item" data-full="/images/screenshots/02_combat.png">
-            <img src="/images/screenshots/02_combat.png" alt="Close-Quarters Dogfight" loading="lazy">
-            <div class="gallery-caption">Fleet Combat Engagement</div>
-          </div>
-
-          <div class="gallery-item" data-full="/images/screenshots/07_scoreboard.png">
-            <img src="/images/screenshots/07_scoreboard.png" alt="Tactical Scoreboard" loading="lazy">
-            <div class="gallery-caption">Match Telemetry & Scoreboard</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Minimal Footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <div>
-            &copy; 2026 <strong style="color: #ffffff;">Xenon Rift</strong> · Built by <a href="https://github.com/codersbrew" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: none;">CodersBrew</a>
-          </div>
-
-          <ul class="footer-links">
-            <li><a href="https://github.com/codersbrew/xenonrift" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://github.com/codersbrew/xenonrift/releases" target="_blank" rel="noopener">Releases</a></li>
-            <li><a href="#overview">xenonrift.com</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Minimal Lightbox -->
-  <div class="lightbox-modal" id="lightboxModal">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
-      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="#top" aria-label="Xenon Rift home">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><ellipse cx="24" cy="24" rx="21" ry="13" transform="rotate(-25 24 24)" stroke="currentColor" stroke-width="2"/><ellipse cx="24" cy="24" rx="13" ry="8" transform="rotate(25 24 24)" stroke="#ff914d" stroke-width="2"/><path d="M6 24h36" stroke="white" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="white"/></svg>
+        <span>XENON RIFT</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#ships">Ships</a>
+        <a href="#ways-to-play">Ways to play</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#get-game" class="btn btn-small">Get the game <span aria-hidden="true">↗</span></a>
     </div>
-  </div>
+  </header>
 
+  <main id="main">
+    <section class="hero container" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-mark" aria-hidden="true"></span> IN DEVELOPMENT · SPACE ARENA COMBAT</p>
+        <h1 id="hero-title"><span class="sr-only">Xenon Rift: </span>Your faction.<br>Your ship.<br><span class="text-cyan">Your fight.</span></h1>
+        <p class="hero-description">Boost through asteroid fields. Unleash your ship’s special. Fight for the Rift in drop-in <strong>10v10 space battles.</strong></p>
+        <div class="button-group">
+          <a class="btn btn-primary" href="#get-game">Join the playtest <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#gameplay">See gameplay <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-note">Mac playtest builds · iOS controller testing<br>Public downloads not available yet.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-topline"><span>FIELD REPORT / XENON OUTPOST</span><span class="text-cyan">01—03</span></div>
+        <button class="capture-button hero-capture" type="button" data-full="./images/gameplay/skirmish.webp" data-caption="Faction combat at Xenon Outpost — development build" aria-label="Enlarge gameplay capture: faction combat at Xenon Outpost">
+          <img src="./images/gameplay/skirmish.webp" srcset="./images/gameplay/skirmish-800.webp 800w, ./images/gameplay/skirmish.webp 1600w" sizes="(max-width: 900px) 92vw, 55vw" width="1600" height="900" alt="Cyan and Ember ships exchanging plasma fire around asteroids and an orbital station" fetchpriority="high">
+          <span class="capture-enlarge" aria-hidden="true">↗</span>
+        </button>
+        <div class="visual-caption"><span>IN-GAME CAPTURE</span><span>Development build · click to expand</span></div>
+        <div class="faction-strip"><span><i class="cyan-mark" aria-hidden="true"></i> CYAN VANGUARD</span><span class="versus">VS</span><span><i class="ember-mark" aria-hidden="true"></i> EMBER SYNDICATE</span></div>
+      </div>
+      <ul class="hero-facts" aria-label="Game highlights">
+        <li><strong>10v10</strong><span>Faction arenas</span></li>
+        <li><strong>3 ships</strong><span>Distinct special abilities</span></li>
+        <li><strong>3 modes</strong><span>Rotating objectives</span></li>
+        <li><strong>Solo or online</strong><span>Bots keep the battle going</span></li>
+      </ul>
+    </section>
+
+    <section class="section container" id="ships" aria-labelledby="ships-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / FIND YOUR FIGHTING STYLE</p><h2 id="ships-title">Three ships.<br>No wrong way to fight.</h2></div>
+        <p>Slip past the front line, pour on the fire, or stand your ground. Every class flies for either faction.</p>
+      </div>
+      <div class="ships-grid">
+        <article class="ship-card">
+          <div class="ship-role"><span>01 / LIGHT</span><span>AGILITY</span></div>
+          <img src="./images/ships/interceptor.webp" width="720" height="540" alt="Narrow, swept-wing Interceptor with cyan engine accents" loading="lazy">
+          <div class="ship-copy"><h3>Interceptor</h3><p>Fast, light, and hard to pin down. Pick your angle and escape before the enemy can answer.</p><div class="ability"><span>SPECIAL / PHASE DASH</span><p>Dash in your movement direction to reposition under fire.</p></div></div>
+        </article>
+        <article class="ship-card ship-card-featured">
+          <div class="ship-role"><span>02 / BALANCED</span><span>ALL-ROUNDER</span></div>
+          <img src="./images/ships/striker.webp" width="720" height="540" alt="Balanced Striker fighter with twin cannons and cyan hull accents" loading="lazy">
+          <div class="ship-copy"><h3>Striker</h3><p>Your first flight starts here. A versatile fighter with the speed and firepower to take the initiative.</p><div class="ability"><span>SPECIAL / WEAPON OVERCHARGE</span><p>Temporarily accelerate your fire rate and press the attack.</p></div></div>
+        </article>
+        <article class="ship-card">
+          <div class="ship-role"><span>03 / HEAVY</span><span>RESILIENCE</span></div>
+          <img src="./images/ships/dreadnought.webp" width="720" height="540" alt="Broad armored Dreadnought with a heavy central barrel and cyan accents" loading="lazy">
+          <div class="ship-copy"><h3>Dreadnought</h3><p>Trade speed for staying power. Bring a heavy hull to the objective and make enemies work for it.</p><div class="ability"><span>SPECIAL / BARRIER PULSE</span><p>Push nearby enemies back and briefly reduce incoming damage.</p></div></div>
+        </article>
+      </div>
+      <p class="section-footnote">Current development ships. Balance and visuals will evolve with playtesting.</p>
+    </section>
+
+    <section class="section section-tinted" id="ways-to-play" aria-labelledby="ways-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">02 / PICK YOUR FRONT</p><h2 id="ways-title">A quick dogfight.<br>Or a bigger campaign.</h2></div><p>Learn your ship offline, join a faction online, or push across the experimental Rift War map.</p></div>
+        <div class="play-grid">
+          <article class="play-card"><span class="tag">ONLINE ARENA</span><h3>Drop in. Make an impact.</h3><p>Join Cyan Vanguard or Ember Syndicate and fight through rotating matches. Bots fill open slots, so there’s something to shoot even when friends aren’t around.</p><ul class="mode-list"><li><strong>Team Deathmatch</strong><span>Outfight the opposing faction.</span></li><li><strong>Capture the Depot</strong><span>Hold their depot. Deny yours.</span></li><li><strong>Offense vs Defense</strong><span>Break the defenders—or survive the clock.</span></li></ul></article>
+          <article class="play-card"><span class="tag">OFFLINE PRACTICE</span><h3>Find your space legs.</h3><p>No server needed. Try every ship against bots, learn the arena, and practice a single mode or rotate through all three.</p><div class="practice-callout"><span aria-hidden="true">↗</span><p><strong>New pilot?</strong><br>Start with the Striker in Practice. Get a feel for aiming, boost, and Overcharge before joining online.</p></div></article>
+        </div>
+        <article class="galaxy-card">
+          <button class="capture-button" type="button" data-full="./images/gameplay/galaxy.webp" data-caption="The 15-rift offline galactic map — experimental, session-only campaign" aria-label="Enlarge offline galactic map"><img src="./images/gameplay/galaxy.webp" srcset="./images/gameplay/galaxy-800.webp 800w, ./images/gameplay/galaxy.webp 1440w" sizes="(max-width: 900px) 92vw, 52vw" width="1440" height="900" alt="Galactic map connecting Cyan and Ember territory across the Orion Spur" loading="lazy"><span class="capture-enlarge" aria-hidden="true">↗</span></button>
+          <div class="galaxy-copy"><span class="tag tag-ember">OFFLINE RIFT WAR / EXPERIMENTAL</span><h3>One battle.<br>A new front line.</h3><p>Choose a live front across a 15-rift galaxy. Deploy against bots, win territory, and open the next route toward total collapse.</p><p class="honesty-note">Session-only prototype: the map resets when you quit. A shared, persistent online galaxy is planned—not available yet.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="gameplay" aria-labelledby="gameplay-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / FROM THE COCKPIT</p><h2 id="gameplay-title">This is the fight.</h2></div><p>Actual in-game captures from the current development build. Expand a frame for a closer look.</p></div>
+      <div class="gallery-grid">
+        <figure><button class="capture-button" type="button" data-full="./images/gameplay/boost.webp" data-caption="Boosting through Xenon Outpost — development build" aria-label="Enlarge gameplay capture: boosting through Xenon Outpost"><img src="./images/gameplay/boost-800.webp" width="800" height="450" alt="A fighter boosting past asteroids with bright engine trails" loading="lazy"><span class="capture-enlarge" aria-hidden="true">↗</span></button><figcaption><span>01 / MOVEMENT</span>Find an angle. Hit the boost.</figcaption></figure>
+        <figure><button class="capture-button" type="button" data-full="./images/gameplay/combat.webp" data-caption="Close-range combat around the station — development build" aria-label="Enlarge gameplay capture: close-range combat"><img src="./images/gameplay/combat-800.webp" width="800" height="450" alt="Two ships fighting beside the central orbital station" loading="lazy"><span class="capture-enlarge" aria-hidden="true">↗</span></button><figcaption><span>02 / COMBAT</span>Close the gap. Pick your moment.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="get-game" aria-labelledby="get-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">04 / YOUR NEXT FLIGHT</p><h2 id="get-title">Help shape the Rift.</h2></div><p>Xenon Rift is in active development. Interested in trying it? Get in touch about playtesting.</p></div>
+        <div class="availability-banner"><span class="tag">PLAYTEST STATUS</span><p>No public Mac download or TestFlight invite is available yet. Requests open your email app; access and timing are not guaranteed.</p></div>
+        <div class="downloads-grid">
+          <article class="download-card"><div class="download-heading"><span class="platform-symbol" aria-hidden="true">⌘</span><div><h3>macOS</h3><span class="platform-status">Development playtest</span></div></div><p>Keyboard & mouse or gamepad. Includes offline practice, experimental Rift War, and online arena play.</p><a class="btn btn-primary" href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20Mac%20playtest&amp;body=Hi%2C%20I%27d%20like%20to%20try%20Xenon%20Rift.%0A%0AMac%20model%3A%0AmacOS%20version%3A%0AController%20%28optional%29%3A">Request Mac playtest <span aria-hidden="true">↗</span></a><p class="download-note">Email request · not a download<br>Builds are unsigned; first launch may need approval.</p></article>
+          <article class="download-card"><div class="download-heading"><span class="platform-symbol" aria-hidden="true">▯</span><div><h3>iPhone & iPad</h3><span class="platform-status">Controller testing</span></div></div><p>Mobile builds are being tested with gamepads. Ask about availability before planning your first flight.</p><p class="controller-warning">Bluetooth controller required.<br>No touch controls yet.</p><a class="btn btn-secondary" href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20iOS%20playtest&amp;body=Hi%2C%20I%27m%20interested%20in%20iOS%20testing.%0A%0ADevice%3A%0AiOS%20version%3A%0ABluetooth%20controller%3A">Ask about iOS testing <span aria-hidden="true">↗</span></a><p class="download-note">Email request · no public TestFlight invite</p></article>
+        </div>
+        <p class="section-footnote">Device compatibility and minimum OS requirements will be listed with the public builds.</p>
+      </div>
+    </section>
+
+    <section class="section container" id="first-flight" aria-labelledby="flight-title">
+      <div class="section-heading"><div><p class="eyebrow">05 / ONCE YOU HAVE A BUILD</p><h2 id="flight-title">Your first flight.</h2></div><p>Start offline. Learn your ship. Then take it to the front line.</p></div>
+      <ol class="steps-grid"><li><span class="step-number">01</span><h3>Launch & suit up</h3><p>Open your playtest build. In <strong>Pilot</strong>, choose a call sign, faction, and ship. Striker is a good place to start.</p></li><li><span class="step-number">02</span><h3>Get a feel for it</h3><p>Open <strong>Practice</strong> and select <strong>Start Practice</strong>. Try thrust, aim, boost, and your special against bots.</p></li><li><span class="step-number">03</span><h3>Join the front</h3><p>Open <strong>Multiplayer</strong>, enter the playtest server address, and select <strong>Join Server</strong>. Use a build matching the server.</p></li></ol>
+      <div class="server-panel"><div><span class="eyebrow">PLAYTEST SERVER ADDRESS</span><code id="server-address">game.xenonrift.com:7770</code><p>Check availability with your playtest host. This is an address, not a live status indicator.</p></div><button class="btn btn-secondary" type="button" data-copy="game.xenonrift.com:7770">Copy address <span aria-hidden="true">⧉</span></button></div>
+      <details class="controls-panel"><summary>Flight controls <span>Keyboard & mouse / default twin-stick</span></summary><div class="controls-scroll"><table><caption class="sr-only">Flight controls for keyboard and mouse and default twin-stick gamepad</caption><thead><tr><th scope="col">Action</th><th scope="col">Keyboard & mouse</th><th scope="col">Gamepad</th></tr></thead><tbody><tr><th scope="row">Thrust / strafe</th><td>W / S · A / D (ship-relative)</td><td>Left stick (screen-relative)</td></tr><tr><th scope="row">Aim / fire</th><td>Mouse / left click</td><td>Right stick / right trigger</td></tr><tr><th scope="row">Boost</th><td>Space</td><td>Left bumper</td></tr><tr><th scope="row">Ship special</th><td>Left Shift</td><td>Right bumper</td></tr><tr><th scope="row">Scoreboard</th><td>Hold Tab</td><td>Hold View / Select</td></tr><tr><th scope="row">Return to menu</th><td>Esc</td><td>Start / Menu</td></tr></tbody></table></div><p>Other controller styles and stick options are available in Settings.</p></details>
+    </section>
+
+    <section class="section container faq-section" id="faq" aria-labelledby="faq-title">
+      <div><p class="eyebrow">BEFORE YOU DROP IN</p><h2 id="faq-title">Good questions.</h2><p>Still stuck? <a href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20help">Ask for help ↗</a></p></div>
+      <div class="faq-list">
+        <details><summary>Can I play without other players?</summary><p>Yes. Practice runs offline against bots, and online arenas use bots to fill open team slots. The experimental offline Rift War also runs without a server.</p></details>
+        <details><summary>Is the galaxy a persistent online world?</summary><p>Not yet. Online servers currently host standalone arenas; their rift state resets on server restart. The 15-rift galactic map is an offline prototype that resets when you quit. Shared online galaxy progression is future work.</p></details>
+        <details><summary>Can I play on iPhone without a controller?</summary><p>Not yet. Gameplay requires a paired Bluetooth controller, such as Xbox, PlayStation, Switch Pro, or MFi. Menu taps work, but touch flight controls are not implemented.</p></details>
+        <details><summary>Why does my Mac block the app?</summary><p>Development builds are not signed or notarized. Only open a build you trust. Follow the instructions supplied with your playtest build; macOS may require approval in System Settings → Privacy & Security after you try to open it. Don’t disable Gatekeeper globally.</p></details>
+        <details><summary>Why can’t I join the server?</summary><p>Check the address and confirm the playtest server is running. Your client must match the server’s build. If you lose connection, return to the menu and rejoin; automatic reconnect is not available yet. Offline Practice still works.</p></details>
+        <details><summary>How do I report a bug or give feedback?</summary><p><a href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20playtest%20feedback">Email playtest feedback</a> with your device, build version, what happened, and steps to reproduce it. Screenshots help. For website issues, use the <a href="https://github.com/codersbrew/xenonrift-web/issues" target="_blank" rel="noopener noreferrer">public website issue tracker ↗</a>.</p></details>
+      </div>
+    </section>
+
+    <section class="closing-section container" aria-labelledby="closing-title"><p class="eyebrow">CYAN OR EMBER. THE NEXT MOVE IS YOURS.</p><h2 id="closing-title">See you at the Rift.</h2><a class="btn btn-primary" href="#get-game">Explore playtesting <span aria-hidden="true">↗</span></a></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-content"><a class="brand" href="#top">XENON RIFT</a><p>© <span id="copyright-year">2026</span> Xenon Rift · Built by <a href="https://github.com/codersbrew" target="_blank" rel="noopener noreferrer">CodersBrew</a></p><a href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20feedback">Contact & feedback ↗</a></div></footer>
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption"><div class="lightbox-toolbar"><p id="lightbox-caption"></p><button class="lightbox-close" type="button" aria-label="Close image">Close <span aria-hidden="true">×</span></button></div><img id="lightbox-image" alt=""></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
