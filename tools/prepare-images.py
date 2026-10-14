@@ -1,14 +1,19 @@
 """Create landing-page WebP assets from local game captures (requires Pillow).
 
-Usage: python tools/prepare-images.py [path/to/xenonrift]
+Usage: python tools/prepare-images.py [path/to/xenonrift] [--ships-only]
+Re-render ship captures from current prefabs before exporting (see README).
 Original captures stay in game repository; only optimized exports ship here.
 """
+import argparse
 from pathlib import Path
-import sys
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-GAME = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else ROOT.parent / "xenonrift"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("game", nargs="?", type=Path, default=ROOT.parent / "xenonrift")
+parser.add_argument("--ships-only", action="store_true", help="Leave gameplay captures untouched")
+args = parser.parse_args()
+GAME = args.game.expanduser()
 SOURCE = GAME / "Logs" / "Screenshots"
 
 
@@ -21,16 +26,17 @@ def export(image, destination, width):
     print(f"{destination.relative_to(ROOT)}: {destination.stat().st_size // 1024} KB")
 
 
-for name, filename in {
-    "skirmish": "06_skirmish.png",
-    "boost": "04_boost.png",
-    "combat": "02_combat.png",
-    "galaxy": "galaxy_1_map.png",
-}.items():
-    with Image.open(SOURCE / filename) as image:
-        image = image.convert("RGB")
-        export(image, ROOT / f"public/images/gameplay/{name}.webp", image.width)
-        export(image, ROOT / f"public/images/gameplay/{name}-800.webp", 800)
+if not args.ships_only:
+    for name, filename in {
+        "skirmish": "06_skirmish.png",
+        "boost": "04_boost.png",
+        "combat": "02_combat.png",
+        "galaxy": "galaxy_1_map.png",
+    }.items():
+        with Image.open(SOURCE / filename) as image:
+            image = image.convert("RGB")
+            export(image, ROOT / f"public/images/gameplay/{name}.webp", image.width)
+            export(image, ROOT / f"public/images/gameplay/{name}-800.webp", 800)
 
 for name in ("Interceptor", "Striker", "Dreadnought"):
     with Image.open(SOURCE / f"ship_{name}_perspective.png") as image:
