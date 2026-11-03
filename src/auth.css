@@ -1,0 +1,20 @@
+/* Account pages (/auth/…): one centred card on the landing page's tokens. */
+.auth-main { min-height: calc(100vh - 85px); display: grid; place-items: center; padding: 3rem 0 5rem; }
+.auth-card { width: min(520px, calc(100% - 2rem)); padding: 2.4rem; border: 1px solid var(--line); background: rgba(13, 18, 28, .92); box-shadow: 0 20px 80px rgba(0, 0, 0, .4); }
+.auth-card .eyebrow { margin-bottom: 1rem; color: var(--cyan); }
+.auth-card h1 { font-size: clamp(2rem, 6vw, 2.6rem); letter-spacing: -.04em; line-height: 1.1; margin-bottom: 1rem; outline: none; }
+.auth-card p { color: var(--muted); margin-bottom: 1.2rem; }
+.auth-card p strong { color: var(--text); font-weight: 600; overflow-wrap: anywhere; }
+.auth-card .button-group { margin-top: 1.6rem; }
+.auth-card .eyebrow.is-error { color: var(--ember); }
+.auth-form { display: grid; gap: 1rem; margin-top: 1.4rem; }
+.auth-form label { display: grid; gap: .4rem; font-size: .85rem; font-weight: 600; }
+.auth-form input { width: 100%; min-height: 48px; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 3px; background: #05070b; color: var(--text); font: inherit; font-size: 1rem; }
+.auth-form input:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; border-color: var(--cyan); }
+.auth-form .hint { color: var(--muted); font-size: .8rem; font-weight: 400; }
+.auth-form button { width: 100%; border: 1px solid var(--cyan); cursor: pointer; }
+.auth-form button:disabled { opacity: .6; cursor: progress; }
+.form-message { margin: 0 !important; padding: .7rem .9rem; border-left: 3px solid var(--ember); background: rgba(255, 173, 118, .08); color: var(--text) !important; font-size: .9rem; }
+.link-button { padding: 0; border: 0; background: none; color: var(--cyan); text-decoration: underline; text-underline-offset: .25em; }
+.auth-footer { color: var(--muted); font-size: .8rem; text-align: center; padding-bottom: 2rem; }
+@media (max-width: 600px) { .auth-card { padding: 1.6rem 1.2rem; } }

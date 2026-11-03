@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email confirmed · Xenon Rift</title>
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+  <meta name="theme-color" content="#070a10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/auth.css">
+</head>
+<body data-page="confirmed">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="../../" aria-label="Xenon Rift home">
+        <img class="brand-wordmark" src="/images/brand/wordmark.webp" width="830" height="260" alt="Xenon Rift">
+      </a>
+    </div>
+  </header>
+  <main class="auth-main" id="main">
+    <section class="auth-card" data-state="confirmed" hidden aria-live="polite">
+      <p class="eyebrow">PILOT ACCOUNT</p>
+      <h1 tabindex="-1">Email confirmed.</h1>
+      <p>Your Xenon Rift account is ready. Go back to the game and sign in with your email and password.</p>
+      <p>You can close this page.</p>
+    </section>
+    <section class="auth-card" data-state="error" hidden aria-live="polite">
+      <p class="eyebrow is-error">LINK PROBLEM</p>
+      <h1 tabindex="-1">That link didn’t work.</h1>
+      <p data-error-text></p>
+      <p>If you already confirmed your email, just sign in in the game. Otherwise, choose <strong>Create account</strong> in Xenon Rift again with the same email and password, and we’ll send a new link.</p>
+    </section>
+    <section class="auth-card" data-state="idle" aria-live="polite">
+      <p class="eyebrow">PILOT ACCOUNT</p>
+      <h1 tabindex="-1">Confirm your email</h1>
+      <p>Open the confirmation link from your Xenon Rift email to finish creating your account. Then sign in in the game.</p>
+      <div class="button-group"><a class="btn btn-secondary" href="../../">Visit xenonrift.com</a></div>
+    </section>
+  </main>
+  <p class="auth-footer">Need help? <a href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20account%20help">Email us</a></p>
+  <script type="module" src="/src/auth.js"></script>
+</body>
+</html>
