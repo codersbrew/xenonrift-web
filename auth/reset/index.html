@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset password · Xenon Rift</title>
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+  <meta name="theme-color" content="#070a10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/auth.css">
+</head>
+<body data-page="reset">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="../../" aria-label="Xenon Rift home">
+        <img class="brand-wordmark" src="/images/brand/wordmark.webp" width="830" height="260" alt="Xenon Rift">
+      </a>
+    </div>
+  </header>
+  <main class="auth-main" id="main">
+    <section class="auth-card" data-state="request" aria-live="polite">
+      <p class="eyebrow">PILOT ACCOUNT</p>
+      <h1 tabindex="-1">Reset your password</h1>
+      <p>Enter the email you use for Xenon Rift. We’ll send you a link to choose a new password.</p>
+      <form class="auth-form" id="request-form" novalidate>
+        <label>Email<input name="email" type="email" autocomplete="email" required inputmode="email" spellcheck="false"></label>
+        <p class="form-message" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">Send reset link</button>
+      </form>
+    </section>
+    <section class="auth-card" data-state="sent" hidden aria-live="polite">
+      <p class="eyebrow">CHECK YOUR EMAIL</p>
+      <h1 tabindex="-1">Link on its way.</h1>
+      <p>If <strong data-sent-to></strong> has a Xenon Rift account, an email with a reset link is on its way. It can take a few minutes; check your spam folder too.</p>
+      <p><button class="link-button" type="button" data-show="request">Use a different email</button></p>
+    </section>
+    <section class="auth-card" data-state="choose" hidden aria-live="polite">
+      <p class="eyebrow">PILOT ACCOUNT</p>
+      <h1 tabindex="-1">Choose a new password</h1>
+      <form class="auth-form" id="password-form" novalidate>
+        <label>New password <span class="hint">At least 8 characters</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label>Repeat new password<input name="confirm" type="password" autocomplete="new-password" minlength="8" required></label>
+        <p class="form-message" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">Save new password</button>
+      </form>
+    </section>
+    <section class="auth-card" data-state="changed" hidden aria-live="polite">
+      <p class="eyebrow">PILOT ACCOUNT</p>
+      <h1 tabindex="-1">Password changed.</h1>
+      <p>Go back to Xenon Rift and sign in with your new password. You can close this page.</p>
+    </section>
+    <section class="auth-card" data-state="error" hidden aria-live="polite">
+      <p class="eyebrow is-error">LINK PROBLEM</p>
+      <h1 tabindex="-1">That link didn’t work.</h1>
+      <p data-error-text></p>
+      <div class="button-group"><button class="btn btn-primary" type="button" data-show="request">Send a new link</button></div>
+    </section>
+  </main>
+  <p class="auth-footer">Need help? <a href="mailto:matthew@essenburg.com?subject=Xenon%20Rift%20account%20help">Email us</a></p>
+  <script type="module" src="/src/auth.js"></script>
+</body>
+</html>
