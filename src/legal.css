@@ -1,0 +1,38 @@
+/* Static legal documents: shared site tokens, readable measure, no JavaScript required. */
+.legal-main { max-width: 1120px; padding-block: 4.5rem 6rem; }
+.legal-heading { max-width: 760px; margin-bottom: 3rem; }
+.legal-heading h1 { font-size: clamp(2.3rem, 6vw, 4rem); line-height: 1.15; margin-block: 1rem; letter-spacing: -.04em; }
+.legal-date { color: var(--muted); font-size: .85rem; }
+.legal-summary { font-size: 1.1rem; color: var(--muted); margin-top: 1.5rem; }
+.legal-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 3rem; align-items: start; }
+.legal-toc { display: block; order: 0; position: sticky; top: 7rem; padding: 1.4rem; border: 1px solid var(--line); background: var(--panel); }
+.legal-toc h2 { font-size: .9rem; margin-bottom: .8rem; }
+.legal-toc ol { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+.legal-toc li + li { margin-top: .5rem; }
+.legal-toc a { display: inline-block; padding-block: .2rem; font-size: .85rem; line-height: 1.5; }
+.legal-toc a:hover { color: var(--cyan); }
+.legal-copy { min-width: 0; overflow-wrap: anywhere; }
+.legal-copy section { scroll-margin-top: 7rem; padding-bottom: 2rem; }
+.legal-copy section + section { border-top: 1px solid var(--line); padding-top: 2rem; }
+.legal-copy h2 { font-size: 1.3rem; line-height: 1.4; margin-bottom: 1rem; letter-spacing: -.02em; }
+.legal-copy p, .legal-copy li { color: var(--muted); }
+.legal-copy p + p, .legal-copy p + ul { margin-top: 1rem; }
+.legal-copy ul { padding-left: 1.4rem; margin-block: 0 1rem; }
+.legal-copy li + li { margin-top: .65rem; }
+.legal-copy strong { color: var(--text); font-weight: 600; }
+.legal-copy a { color: var(--cyan); }
+@media (max-width: 900px) {
+  .legal-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .legal-toc { position: static; width: 100%; }
+  .legal-toc ol { columns: 2; column-gap: 2rem; }
+  .legal-toc li { break-inside: avoid; }
+}
+@media (max-width: 680px) {
+  .legal-main { padding-block: 2.5rem 3rem; }
+  .legal-heading { margin-bottom: 2rem; }
+  .legal-summary { font-size: 1rem; }
+  .legal-page .navbar { padding-bottom: .65rem; }
+  .legal-page .navbar .brand-wordmark { width: clamp(120px, 36vw, 170px); }
+  .legal-page .navbar .btn { font-size: .7rem; padding-inline: .5rem; gap: .4rem; }
+  .legal-toc ol { columns: 1; }
+}

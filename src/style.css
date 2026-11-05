@@ -163,6 +163,8 @@ td { color: var(--muted); }
 .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .footer-content .brand-wordmark { width: 210px; }
 .footer-content p, .footer-content > a:last-child { font-size: .75rem; color: var(--muted); }
+.footer-links { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; width: auto; justify-content: flex-start; order: 0; }
+.footer-links a { padding-block: .4rem; font-size: .8rem; color: var(--muted); }
 .lightbox { width: min(1400px, 94vw); max-width: 94vw; max-height: 94dvh; padding: 1rem; border: 1px solid var(--line); background: #070a10; color: var(--text); }
 .lightbox::backdrop { background: rgba(0, 0, 0, .9); }
 .lightbox-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
