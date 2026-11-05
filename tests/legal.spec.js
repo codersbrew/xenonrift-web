@@ -76,6 +76,7 @@ test('home and account pages link legal documents and use only new support addre
     }
   }
   await page.goto('/');
+  await page.getByText('Need help or want to report a bug?', { exact: true }).click();
   await expect(page.getByRole('link', { name: 'Ask for help' })).toHaveAttribute('href', /\?subject=Xenon%20Rift%20help$/);
 });
 
