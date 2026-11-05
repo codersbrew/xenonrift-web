@@ -21,7 +21,8 @@ Node 22.12+ recommended. Tests run against production preview on port 4173, on d
 - Galaxy is session-only; shared online persistence is not available yet.
 - iOS gameplay requires a Bluetooth controller; no touch flight controls yet.
 - No public Mac release or TestFlight invite existed when this page was updated. Do not link to private game releases or generic TestFlight pages.
-- Playtest CTAs open email to the developer's public GitHub contact address. They do not enroll users or guarantee access.
+- Playtest, support, and contact links use `support@codersbrew.com`. They do not enroll users or guarantee access.
+- Public legal pages: `/privacy/` and `/terms/`. See [LEGAL_CONTENT.md](LEGAL_CONTENT.md) for scope, maintenance, and release review.
 - Server address is setup information, not a health indicator.
 - Gameplay images are in-engine development captures. Ship art is rendered from current game models.
 
