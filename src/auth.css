@@ -19,3 +19,14 @@
 .auth-footer { color: var(--muted); font-size: .8rem; text-align: center; padding: 0 1rem 2rem; overflow-wrap: anywhere; }
 .auth-footer .footer-links { justify-content: center; margin-top: .5rem; }
 @media (max-width: 600px) { .auth-card { padding: 1.6rem 1.2rem; } }
+
+/* /link/: approving an Apple TV's code. */
+.tv-code { font-family: 'Orbitron', monospace; letter-spacing: .2em; text-transform: uppercase; font-size: 1.3rem !important; text-align: center; }
+.provider-buttons { display: grid; gap: .7rem; margin-top: 1.2rem; }
+.provider { width: 100%; min-height: 48px; cursor: pointer; font-weight: 600; }
+.provider-google { background: #f2f4fa; color: #1f1f1f; border: 1px solid #f2f4fa; }
+.provider-apple { background: #000; color: #fff; border: 1px solid rgba(255, 255, 255, .55); }
+.provider:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
+.provider:disabled { opacity: .6; cursor: progress; }
+.divider { display: flex; align-items: center; gap: .8rem; margin: 1.4rem 0 0 !important; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
