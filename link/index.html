@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in your TV · Xenon Rift</title>
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+  <meta name="theme-color" content="#070a10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/auth.css">
+</head>
+<body data-page="link">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="../" aria-label="Xenon Rift home">
+        <img class="brand-wordmark" src="/images/brand/wordmark.webp" width="830" height="260" alt="Xenon Rift">
+      </a>
+    </div>
+  </header>
+  <main class="auth-main" id="main">
+    <!-- Apple TV has no browser: it shows a code, and the pilot signs in here and approves it. -->
+    <section class="auth-card" data-state="start" aria-live="polite">
+      <p class="eyebrow">APPLE TV</p>
+      <h1 tabindex="-1">Sign in your TV</h1>
+      <p>Enter the code your TV shows, then sign in with the account you fly with.</p>
+      <form class="auth-form" id="code-form" novalidate>
+        <label>Code on your TV<input class="tv-code" name="code" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" maxlength="9" placeholder="XXXX-XXXX" required></label>
+      </form>
+      <div class="provider-buttons">
+        <button class="btn provider provider-google" type="button" data-provider="google">Continue with Google</button>
+        <button class="btn provider provider-apple" type="button" data-provider="apple">Continue with Apple</button>
+      </div>
+      <p class="divider"><span>or with email</span></p>
+      <form class="auth-form" id="email-form" novalidate>
+        <label>Email<input name="email" type="email" autocomplete="email" required inputmode="email" spellcheck="false"></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <p class="form-message" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">Sign in and approve</button>
+      </form>
+    </section>
+    <section class="auth-card" data-state="retry" hidden aria-live="polite">
+      <p class="eyebrow">SIGNED IN</p>
+      <h1 tabindex="-1">Check the code</h1>
+      <p>You’re signed in as <strong data-signed-in-as></strong>. Enter the code your TV shows now.</p>
+      <form class="auth-form" id="retry-form" novalidate>
+        <label>Code on your TV<input class="tv-code" name="code" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" maxlength="9" placeholder="XXXX-XXXX" required></label>
+        <p class="form-message" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">Approve</button>
+      </form>
+    </section>
+    <section class="auth-card" data-state="approved" hidden aria-live="polite">
+      <p class="eyebrow">APPROVED</p>
+      <h1 tabindex="-1">Your TV is signing in.</h1>
+      <p>Look back at your <span data-device>TV</span>: it signs in within a few seconds. You can close this page.</p>
+    </section>
+  </main>
+  <footer class="auth-footer">
+    <p>Need help? <a href="mailto:support@codersbrew.com?subject=Xenon%20Rift%20account%20help">support@codersbrew.com</a></p>
+    <nav class="footer-links" aria-label="Footer navigation"><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a></nav>
+  </footer>
+  <script type="module" src="/src/link.js"></script>
+</body>
+</html>
