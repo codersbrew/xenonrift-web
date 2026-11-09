@@ -52,7 +52,7 @@ for (const doc of documents) {
       expect(await page.evaluate(() => document.querySelector('.legal-toc').getBoundingClientRect().top <=
         document.querySelector('.legal-copy').getBoundingClientRect().top), 'contents before article at width ' + width).toBe(true);
     }
-    await expect(page.getByRole('article')).toContainText('Pilot → Account → Delete Account');
+    await expect(page.getByRole('article')).toContainText('Pilot Profile → Delete Account');
     await expect(page.getByRole('article').getByRole('link', { name: support, exact: true }).first())
       .toHaveAttribute('href', /^mailto:support@codersbrew\.com(?:\?|$)/);
     expect(await page.locator('script').count()).toBe(0);

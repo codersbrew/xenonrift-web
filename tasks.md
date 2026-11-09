@@ -79,4 +79,11 @@
 - [x] Push to GitHub remote and enable GitHub Pages under Actions mode
 - [x] Configure DNS A and CNAME records at domain registrar for `xenonrift.com` (Resolved & Active)
 - [x] Enforce HTTPS on `xenonrift.com` via GitHub Pages SSL certificate
-- [x] Streamline downloads to client-only (macOS & iOS) and remove Linux dedicated server card
+## 7. Current Game State Alignment (2026-11-09)
+- [x] Export updated `fleet.webp` / `fleet-800.webp` (and gameplay captures) from `../xenonrift/Logs/Screenshots/` showing the visual fleet-strip HUD, 100-fighter reserve pips, and on-ship rings
+- [x] Update `#fleet-battle` copy for capital main guns, point-defense turrets, carrier-only launch bays, 100-fighter reserves, and base Xenon Rift orbital containment ring spawns (2× respawn wait)
+- [x] Update galactic war copy for per-cycle faction lock ("Choose your side once per Rift Cycle") and durable database persistence
+- [x] Update `#play` onboarding steps for current menu structure (`Hangar`, `Practice` + `Offline Rift War`, `Rift War`, `Pilot Profile`, and Apple TV phone sign-in at `/link/`)
+- [x] Update platform disclosures and Flight Controls table for built-in floating twin-stick touch controls on iPhone, iPad, and Android (`Auto / On / Off`, `Left-handed layout`) and shipboard announcer voices (`Female AI`, `Male AI`, `Tactical Droid`)
+- [x] Update `privacy/index.html` and `terms/index.html` account deletion path to `Pilot Profile → Delete Account`
+- [x] Update Playwright test suites (`tests/landing.spec.js`, `tests/legal.spec.js`) and verify production build + full test pass

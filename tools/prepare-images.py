@@ -36,6 +36,7 @@ if args.fleet_only:
 
 if not args.ships_only and not args.fleet_only:
     for name, filename in {
+        "fleet": "fleet_2_cyan_fleet.png",
         "skirmish": "06_skirmish.png",
         "boost": "04_boost.png",
         "combat": "02_combat.png",
