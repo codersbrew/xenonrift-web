@@ -27,14 +27,20 @@ test('navigation and the current Fleet Battle screenshot resolve', async ({ page
     .map(link => link.hash.slice(1)).filter(id => !document.getElementById(id)))).toEqual([]);
   await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'The battle' }).click();
   await expect(page.locator('#fleet-battle')).toBeInViewport();
-  for (const path of ['/images/gameplay/fleet.webp', '/images/gameplay/fleet-800.webp']) {
+  for (const path of [
+    '/images/gameplay/rift-gate.webp', '/images/gameplay/rift-gate-800.webp',
+    '/images/gameplay/fleet-hud.webp', '/images/gameplay/fleet-hud-800.webp',
+    '/images/gameplay/galaxy-map.webp', '/images/gameplay/galaxy-map-800.webp',
+    '/images/gameplay/fleet-arena.webp', '/images/gameplay/fleet-arena-800.webp',
+  ]) {
     const response = await request.get(path);
     expect(response.ok()).toBe(true);
     expect(response.headers()['content-type']).toContain('image/webp');
   }
-  const capture = page.locator('.capture-link img');
+  const capture = page.locator('.hero-visual .capture-link img');
   await expect(capture).toHaveAttribute('width', '1600');
   await expect(capture).toHaveAttribute('height', '900');
+  await expect(page.locator('.feature-card .capture-link')).toHaveCount(3);
   await expect(page.locator('figcaption')).toContainText('In-game development capture');
 });
 
@@ -65,7 +71,7 @@ test('metadata matches current gameplay and uses the current screenshot', async 
   await expect(page).toHaveTitle('Xenon Rift — Your Ship. Your Fleet. Your Fight.');
   await expect(page.locator('meta[name=description]')).toHaveAttribute('content', /12v12 Fleet Battles.*persistent galaxy/);
   for (const selector of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
-    await expect(page.locator(selector)).toHaveAttribute('content', 'https://xenonrift.com/images/gameplay/fleet.webp');
+    await expect(page.locator(selector)).toHaveAttribute('content', 'https://xenonrift.com/images/gameplay/rift-gate.webp');
   }
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://xenonrift.com/');
 });
@@ -77,7 +83,7 @@ test('keyboard opens image dialog, traps focus, closes, and restores focus', asy
   await page.keyboard.press('Enter');
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
-  await expect(dialog).toContainText('Carrier, destroyers, fighters, and the fleet-strip HUD');
+  await expect(dialog).toContainText('Sol Alliance Orbital Containment Ring, singularity beams, and Bengal carrier');
   await expect(dialog.locator('img')).toHaveAttribute('alt', /cyan carrier and destroyers/);
   await page.keyboard.press('Tab');
   expect(await page.evaluate(() => !!document.activeElement.closest('dialog'))).toBe(true);

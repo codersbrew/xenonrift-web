@@ -29,14 +29,25 @@ def export(image, destination, width):
 
 
 if args.fleet_only:
-    with Image.open(SOURCE / "fleet_2_cyan_fleet.png") as image:
-        image = image.convert("RGB")
-        export(image, ROOT / "public/images/gameplay/fleet.webp", image.width)
-        export(image, ROOT / "public/images/gameplay/fleet-800.webp", 800)
+    for name, filename in {
+        "fleet": "fleet_2_cyan_fleet.png",
+        "rift-gate": "rift_gate_cyan_fleet_context.png",
+        "fleet-hud": "fleet_5_hud.png",
+        "fleet-arena": "fleet_1_engaged.png",
+        "galaxy-map": "galaxy_1_map.png",
+    }.items():
+        with Image.open(SOURCE / filename) as image:
+            image = image.convert("RGB")
+            export(image, ROOT / f"public/images/gameplay/{name}.webp", image.width)
+            export(image, ROOT / f"public/images/gameplay/{name}-800.webp", 800)
 
 if not args.ships_only and not args.fleet_only:
     for name, filename in {
         "fleet": "fleet_2_cyan_fleet.png",
+        "rift-gate": "rift_gate_cyan_fleet_context.png",
+        "fleet-hud": "fleet_5_hud.png",
+        "fleet-arena": "fleet_1_engaged.png",
+        "galaxy-map": "galaxy_1_map.png",
         "skirmish": "06_skirmish.png",
         "boost": "04_boost.png",
         "combat": "02_combat.png",
