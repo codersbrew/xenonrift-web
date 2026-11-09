@@ -80,7 +80,8 @@
 - [x] Configure DNS A and CNAME records at domain registrar for `xenonrift.com` (Resolved & Active)
 - [x] Enforce HTTPS on `xenonrift.com` via GitHub Pages SSL certificate
 ## 7. Current Game State Alignment (2026-11-09)
-- [x] Export updated `fleet.webp` / `fleet-800.webp` (and gameplay captures) from `../xenonrift/Logs/Screenshots/` showing the visual fleet-strip HUD, 100-fighter reserve pips, and on-ship rings
+- [x] Export updated `rift-gate.webp`, `fleet-hud.webp`, `galaxy-map.webp`, `fleet-arena.webp` (plus `-800.webp` variants) from `../xenonrift/Logs/Screenshots/` showing the Xenon Rift containment ring, visual fleet-strip HUD, 100-fighter reserve pips, and persistent galactic war map
+- [x] Add signature primary weapon differences (`Pulse Scatter`, `Plasma Cannon`, `Railgun`) alongside class specials on the `#ships` fighter cards
 - [x] Update `#fleet-battle` copy for capital main guns, point-defense turrets, carrier-only launch bays, 100-fighter reserves, and base Xenon Rift orbital containment ring spawns (2× respawn wait)
 - [x] Update galactic war copy for per-cycle faction lock ("Choose your side once per Rift Cycle") and durable database persistence
 - [x] Update `#play` onboarding steps for current menu structure (`Hangar`, `Practice` + `Offline Rift War`, `Rift War`, `Pilot Profile`, and Apple TV phone sign-in at `/link/`)

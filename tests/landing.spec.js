@@ -59,6 +59,7 @@ test('gameplay copy describes current fleets, factions, galaxy, and specials', a
   }
   const cards = page.locator('.ship-card');
   await expect(cards).toHaveCount(3);
+  for (const primary of ['PULSE SCATTER', 'PLASMA CANNON', 'RAILGUN']) await expect(page.locator('#ships')).toContainText(primary);
   for (const special of ['PHASE DASH', 'WEAPON OVERCHARGE', 'PHOTON TORPEDOES']) await expect(page.locator('#ships')).toContainText(special);
   for (const retired of ['10v10', 'Cyan Vanguard', 'Ember Syndicate', 'Capture the Depot',
     'Offense vs Defense', 'BARRIER PULSE', 'session-only', 'Boost', 'no touch flight controls']) {
