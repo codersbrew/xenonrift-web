@@ -17,16 +17,17 @@ Node 22.12+ recommended. Tests run against production preview on port 4173, on d
 ## Content rules
 
 - Lead with gameplay and player choices, not engine/network implementation.
-- Lead mode is 12v12 Fleet Battle: each faction has a carrier and two or three destroyers; destroy every enemy capital ship to take the rift. No match clock.
-- Factions are Sol Alliance and Zhurak Hegemony. The dedicated online galaxy persists and bots keep battles moving; offline Practice is separate and needs no sign-in.
-- Current specials: Phase Dash, Weapon Overcharge, Photon Torpedoes. Space/Shift and either gamepad bumper activate the class special; ordinary boost is disabled.
-- Multiplayer uses account sign-in and the galactic map, not manual server-address entry. Do not promise per-cycle faction enforcement; it remains unfinished.
-- iPhone/iPad and Apple TV gameplay requires a compatible controller; no touch flight controls, and Siri Remote alone is unsupported.
+- Lead mode is 12v12 Fleet Battle: each faction has a carrier and two or three destroyers armed with heavy main guns and point-defense turrets; destroy every enemy capital ship to take the rift. No match clock.
+- Only the carrier has launch bays and holds a 100-fighter reserve. If the carrier's bays are wrecked, its 100-fighter reserve is spent, or the carrier is sunk, pilots warp in from their base Xenon Rift (an orbital containment ring) with double the respawn wait.
+- Factions are Sol Alliance and Zhurak Hegemony. Pilots choose one side per Rift Cycle (faction lock until a capital falls and the galaxy re-forms). The dedicated online galaxy persists in the database and bots keep battles moving; offline Practice (Fleet Battle, Team Deathmatch, or Offline Rift War) is separate and needs no sign-in.
+- Current specials: Phase Dash (reduced incoming damage while dashing), Weapon Overcharge, Photon Torpedoes (5× damage to capital ships, turrets, and bays). Space/Shift, either gamepad bumper, or the touch Special button activates the class special; ordinary boost is disabled.
+- Main menu uses Rift War (online multiplayer), Practice, Hangar (ship selection), Settings (controller, touch, audio/announcer voices), and the top-right Pilot Profile chip (call sign, account sign-in/sign-out, career stats, account deletion).
+- iPhone, iPad, and Android support built-in floating twin-stick touch controls (with Auto/On/Off and Left-handed options in Settings) or a compatible controller. Apple TV requires a compatible controller to fly (Siri Remote navigates menus, and pilots can sign in from a phone at `/link/`; Siri Remote alone cannot fly).
 - No published release was returned by GitHub when this refresh was checked. Keep email playtest CTAs; do not invent direct downloads, a public TestFlight invite, App Store availability, or launch dates.
 - Playtest, support, and contact links use `support@codersbrew.com`. They do not enroll users or guarantee access.
 - Public legal pages: `/privacy/` and `/terms/`. See [LEGAL_CONTENT.md](LEGAL_CONTENT.md) for scope, maintenance, and release review.
 - The website does not show live server status. The game checks galaxy availability and build compatibility.
-- Gameplay images are in-engine development captures, labeled as such. The Fleet Battle hero replaces old station/boost captures. Ship art is unchanged and rendered from game models.
+- Gameplay images are in-engine development captures, labeled as such. The Fleet Battle hero shows the visual fleet-strip HUD, reserve pips, and capital silhouettes. Ship art is rendered from game models.
 
 Before enabling direct downloads, verify anonymously accessible assets, matching server/client versions, signing/notarization, minimum OS/device support, version, release date, and file size. Update availability copy and regression tests together. Real gameplay video can replace the hero capture when footage is available; don't present a screenshot slideshow as gameplay video.
 
@@ -51,7 +52,7 @@ Export only the current fleet image without replacing reviewed ship renders or o
 /tmp/xenonrift-web-images/bin/python tools/prepare-images.py /path/to/game-capture-worktree --fleet-only
 ```
 
-Requires `Logs/Screenshots/fleet_2_cyan_fleet.png`. Current export uses the 1600×900 capture from `../xenonrift-turrets` at game revision `57fe17a` (merged into game main `741b7ec`). Full frame is preserved; exports are 1600 and 800 pixels wide. Old captures remain available as historical assets but are not linked from the refreshed homepage.
+Requires `Logs/Screenshots/fleet_2_cyan_fleet.png`. Current export uses the 1600×900 capture from `../xenonrift` at game revision `9f6ba39` / `8f21f37` (visual fleet-strip HUD, reserve pips, and capital main guns). Full frame is preserved; exports are 1600 and 800 pixels wide. Old captures remain available as historical assets but are not linked from the refreshed homepage.
 
 ### Refresh ships after a game model change
 

@@ -43,15 +43,19 @@ test('gameplay copy describes current fleets, factions, galaxy, and specials', a
   await expect(page.locator('.hero-description')).toContainText('12v12 Fleet Battles');
   const battle = page.locator('#fleet-battle');
   await expect(page.locator('.hero-description')).toContainText('persistent galaxy');
-  for (const fact of ['SOL ALLIANCE', 'ZHURAK HEGEMONY', 'carrier and two or three destroyers',
-    'turrets and launch bays', 'No match clock', 'Team Deathmatch']) {
+  for (const fact of [
+    'SOL ALLIANCE', 'ZHURAK HEGEMONY', 'carrier and two or three destroyers',
+    'main guns and point-defense turrets', '100-fighter reserve', 'base Xenon Rift',
+    'double the respawn wait', 'Choose your side once per Rift Cycle',
+    'No match clock', 'Team Deathmatch', 'Offline Rift War', 'fleet-strip HUD', 'announcer',
+  ]) {
     await expect(battle).toContainText(fact);
   }
   const cards = page.locator('.ship-card');
   await expect(cards).toHaveCount(3);
   for (const special of ['PHASE DASH', 'WEAPON OVERCHARGE', 'PHOTON TORPEDOES']) await expect(page.locator('#ships')).toContainText(special);
   for (const retired of ['10v10', 'Cyan Vanguard', 'Ember Syndicate', 'Capture the Depot',
-    'Offense vs Defense', 'BARRIER PULSE', 'session-only', 'Boost']) {
+    'Offense vs Defense', 'BARRIER PULSE', 'session-only', 'Boost', 'no touch flight controls']) {
     await expect(page.locator('body')).not.toContainText(retired);
   }
 });
@@ -73,7 +77,7 @@ test('keyboard opens image dialog, traps focus, closes, and restores focus', asy
   await page.keyboard.press('Enter');
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
-  await expect(dialog).toContainText('Carrier, destroyers, and fighters');
+  await expect(dialog).toContainText('Carrier, destroyers, fighters, and the fleet-strip HUD');
   await expect(dialog.locator('img')).toHaveAttribute('alt', /cyan carrier and destroyers/);
   await page.keyboard.press('Tab');
   expect(await page.evaluate(() => !!document.activeElement.closest('dialog'))).toBe(true);
@@ -94,8 +98,9 @@ test('playtest availability and Apple device requirements stay explicit', async 
   await expect(page).toHaveURL(/#play$/);
   await expect(page.getByRole('heading', { name: 'Come help shape the Rift.' })).toBeInViewport();
   await expect(page.locator('.playtest-note')).toContainText('email app, not a download');
-  await expect(page.locator('.playtest-note')).toContainText('requires a compatible controller');
-  await expect(page.locator('.playtest-note')).toContainText('no touch flight controls');
+  await expect(page.locator('.playtest-note')).toContainText('iPhone, iPad, and Android support built-in touch flight controls');
+  await expect(page.locator('.playtest-note')).toContainText('Apple TV gameplay requires a compatible controller to fly');
+  await expect(page.locator('.playtest-note')).toContainText('xenonrift.com/link');
   await expect(page.locator('.playtest-note')).toContainText('Siri Remote alone is not supported');
   for (const name of ['Request Mac playtest', 'Ask about Apple device testing']) {
     await expect(page.getByRole('link', { name })).toHaveAttribute('href', /^mailto:support@codersbrew\.com\?subject=/);
@@ -106,8 +111,9 @@ test('playtest availability and Apple device requirements stay explicit', async 
 test('first-flight instructions use accounts and the galaxy, not manual server setup', async ({ page }) => {
   await page.goto('/');
   const steps = page.locator('.steps-grid');
-  for (const fact of ['Practice', 'Google, Apple, or email', 'unique call sign', 'career stats',
-    'Multiplayer', 'galactic map', 'Drop In', 'No server address to enter']) await expect(steps).toContainText(fact);
+  for (const fact of ['Hangar', 'Practice', 'Offline Rift War', 'Rift War', 'Pilot Profile',
+    'Google, Apple, or email', 'unique call sign', 'career stats',
+    'choose your side', 'galactic map', 'Drop In', 'No server address to enter']) await expect(steps).toContainText(fact);
   expect(await page.locator('[data-copy], #server-address, #starfield').count()).toBe(0);
 });
 
@@ -116,12 +122,15 @@ test('FAQ and controls explain persistence, offline play, and class specials', a
   await page.getByText('Can I play without other players?', { exact: true }).click();
   await expect(page.getByText('Yes. Practice runs offline against bots', { exact: false })).toBeVisible();
   await page.getByText('Does the online galaxy keep going when I leave?', { exact: true }).click();
-  await expect(page.getByText('The dedicated galaxy keeps its war state', { exact: false })).toBeVisible();
+  await expect(page.getByText('The dedicated galaxy saves its war state', { exact: false })).toBeVisible();
   await page.locator('.controls-panel summary').click();
   await expect(page.getByRole('table')).toBeVisible();
   const special = page.getByRole('row').filter({ has: page.getByRole('rowheader', { name: 'Ship special' }) });
   await expect(special).toContainText('Space or Left Shift');
   await expect(special).toContainText('Either bumper');
+  await expect(special).toContainText('Special button above aim stick');
+  await expect(page.locator('.controls-panel')).toContainText('Left-handed layout');
+  await expect(page.locator('.controls-panel')).toContainText('announcer voices');
   await expect(page.getByRole('table')).not.toContainText('Boost');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

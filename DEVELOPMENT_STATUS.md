@@ -1,6 +1,21 @@
 # Website development status
 
-## Current game refresh
+## Current game state sync (2026-11-09)
+
+Updated website copy, gameplay captures, controls, and legal deletion references to match the current game state (`../xenonrift` at `9f6ba39` / `8f21f37`).
+
+### Updated in this refresh
+
+- **Hero & gameplay screenshots**: Re-exported `public/images/gameplay/{fleet,skirmish,combat,galaxy}{,-800}.webp` from current game captures (`Logs/Screenshots/`), replacing the retired text-panel HUD in `fleet.webp` with the current visual **fleet-strip HUD** (capital silhouettes, 100-fighter reserve pips, launch indicators) and **on-ship rings**. Reviewed ship renders (`interceptor.webp`, `striker.webp`, `dreadnought.webp`) remain unchanged.
+- **Fleet Battle & Xenon Rift mechanics**: Updated `#fleet-battle` to reflect heavy anti-capital **main guns** and point-defense **turrets**, carrier-only **launch bays** with a **100-fighter reserve**, and base **Xenon Rift** orbital containment ring spawns with **double the respawn wait** when a carrier's bays are wrecked, its reserve is spent, or the carrier is sunk.
+- **One side per war & durable galaxy**: Updated galactic war copy and onboarding steps to reflect per-cycle **faction lock** (pilots choose a side once per Rift Cycle until a capital falls and the galaxy re-forms) and database-persisted war state.
+- **Main menu & onboarding flow**: Updated first-flight steps and FAQ to use the current menu structure (**Rift War**, **Practice** including **Offline Rift War**, **Hangar**, **Settings**, and **Pilot Profile** opened from the top-right pilot chip), plus Apple TV phone sign-in at `/link/`.
+- **Touch controls & audio**: Replaced the outdated "no touch flight controls yet" notice with built-in floating twin-stick **touch controls** on iPhone, iPad, and Android (with **Auto / On / Off** and **Left-handed layout** in Settings), while keeping the controller requirement for Apple TV flight (Siri Remote navigates menus). Added a **Touch (phone / tablet)** column to the Flight Controls table and documented the three selectable **ship-computer announcer voices** (Female AI, Male AI, Tactical Droid).
+- **Legal pages**: Updated account deletion path in `privacy/index.html` and `terms/index.html` from `Pilot → Account → Delete Account` to `Pilot Profile → Delete Account`, and included war-cycle faction choice in pilot profile disclosures.
+
+---
+
+## Previous refresh (`feat/current-game-site`)
 
 Branch `feat/current-game-site`, based on updated website `main` / `origin/main` at `594bedd` (merged legal pages). Worktree: `../xenonrift-web-refresh`. Original website checkout's unrelated download/template work remains untouched.
 
