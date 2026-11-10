@@ -1,0 +1,339 @@
+/* Galactic Lore & Mythology: Archival Codex styling */
+
+.lore-page {
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(168, 85, 247, 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 40%, rgba(102, 244, 237, 0.06), transparent 60%);
+  background-attachment: fixed;
+}
+
+.lore-main {
+  max-width: 1120px;
+  padding-block: 3.5rem 6rem;
+}
+
+.lore-heading {
+  max-width: 860px;
+  margin-bottom: 3.5rem;
+}
+
+.lore-heading h1 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  margin-block: 0.8rem 1.2rem;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.lore-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  font-family: var(--display);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #c084fc;
+  border-top: 1px solid rgba(168, 85, 247, 0.25);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+  padding: 0.65rem 0;
+  margin-block: 1rem 1.4rem;
+  text-transform: uppercase;
+}
+
+.lore-metadata span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lore-metadata strong {
+  color: var(--text);
+}
+
+.lore-summary {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Layout with sticky sidebar TOC */
+.lore-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.lore-toc {
+  position: sticky;
+  top: 7rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  background: rgba(13, 18, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lore-toc h2 {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.lore-toc-part {
+  font-family: var(--display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: #c084fc;
+  text-transform: uppercase;
+  margin-block: 1.2rem 0.4rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px dashed rgba(168, 85, 247, 0.3);
+}
+
+.lore-toc-part:first-of-type {
+  margin-top: 0;
+}
+
+.lore-toc ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.lore-toc li + li {
+  margin-top: 0.5rem;
+}
+
+.lore-toc a {
+  display: inline-block;
+  padding-block: 0.2rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.lore-toc a:hover {
+  color: var(--cyan);
+}
+
+/* Chronicle Copy */
+.lore-copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.lore-part-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #d8b4fe;
+  border-radius: 2px;
+  margin-bottom: 1.4rem;
+}
+
+.lore-section {
+  scroll-margin-top: 7rem;
+  padding-bottom: 2.75rem;
+}
+
+.lore-section + .lore-section {
+  border-top: 1px solid var(--line);
+  padding-top: 2.75rem;
+}
+
+.lore-section h2 {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.lore-section p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.lore-section p + p {
+  margin-top: 1.25rem;
+}
+
+/* Dramatic quotes & statements */
+.lore-dramatic-statement {
+  margin-block: 1.75rem !important;
+  padding: 1.25rem 1.6rem;
+  border-left: 3px solid #a855f7;
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.14) 0%, rgba(13, 18, 28, 0.4) 100%);
+  font-family: var(--display);
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #f3e8ff !important;
+}
+
+/* Divergence Cards Grid */
+.divergence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-block: 1.75rem;
+}
+
+.divergence-card {
+  padding: 1.4rem;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  background: rgba(13, 18, 28, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+.divergence-card-tag {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin-bottom: 0.5rem;
+}
+
+.divergence-card h3 {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.divergence-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Faction Epithets / Contrast Callout */
+.faction-contrast-box {
+  margin-block: 1.75rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 2px;
+}
+
+.faction-contrast-box p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.faction-contrast-box strong {
+  color: var(--text);
+}
+
+/* Cockpit climax box */
+.cockpit-climax-card {
+  margin-block: 2.5rem 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  background: linear-gradient(135deg, rgba(30, 15, 45, 0.85) 0%, rgba(13, 18, 28, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cockpit-climax-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #66f4ed, #a855f7, #66f4ed);
+}
+
+.cockpit-climax-card p.cockpit-text {
+  font-family: var(--body);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: #f1f5fa;
+  font-weight: 500;
+  margin: 0;
+}
+
+.cockpit-climax-card .cockpit-action {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .lore-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .lore-toc {
+    position: static;
+    width: 100%;
+  }
+  .divergence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .lore-page .navbar {
+    padding-bottom: 0.65rem;
+  }
+  .lore-page .navbar .brand-wordmark {
+    width: clamp(120px, 36vw, 170px);
+  }
+  .lore-page .navbar .btn {
+    font-size: 0.7rem;
+    padding-inline: 0.5rem;
+    gap: 0.4rem;
+  }
+  .lore-main {
+    padding-block: 2.5rem 3.5rem;
+  }
+  .lore-heading {
+    margin-bottom: 2rem;
+  }
+  .lore-heading h1 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+  .lore-metadata {
+    font-size: 0.68rem;
+    gap: 0.4rem 1rem;
+  }
+  .lore-summary {
+    font-size: 1rem;
+  }
+  .cockpit-climax-card {
+    padding: 1.3rem;
+  }
+  .cockpit-climax-card p.cockpit-text {
+    font-size: 1.05rem;
+  }
+  .cockpit-action .btn {
+    width: 100%;
+  }
+}

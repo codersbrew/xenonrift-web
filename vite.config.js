@@ -11,6 +11,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
+        lore: resolve(import.meta.dirname, 'lore/index.html'),
         privacy: resolve(import.meta.dirname, 'privacy/index.html'),
         terms: resolve(import.meta.dirname, 'terms/index.html'),
         // Supabase Auth email links land here (Site URL and the recovery redirect; see supabase/templates/README.md).
