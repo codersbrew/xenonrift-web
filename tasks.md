@@ -88,3 +88,16 @@
 - [x] Update platform disclosures and Flight Controls table for built-in floating twin-stick touch controls on iPhone, iPad, and Android (`Auto / On / Off`, `Left-handed layout`) and shipboard announcer voices (`Female AI`, `Male AI`, `Tactical Droid`)
 - [x] Update `privacy/index.html` and `terms/index.html` account deletion path to `Pilot Profile → Delete Account`
 - [x] Update Playwright test suites (`tests/landing.spec.js`, `tests/legal.spec.js`) and verify production build + full test pass
+
+## 8. Galactic Lore & Mythology Page (2026-11-10)
+- [x] Create dedicated lore page at `/lore/` (`lore/index.html`) containing the full canon narrative:
+  - Page I: The Great Departure (2188–2240), Deep-well Exodus to red dwarf star systems (Proxima, Ross 128, Luyten, TRAPPIST-1), and Sol Alliance consolidation
+  - The Birth of the Aphelion Collective, M-dwarf stellar environment, and biological divergence across twenty generations
+  - Divergence breakdown cards: The Low-G Frame, Crimson & Dark Adaptation, and Radiation Hardening ("Spindles" / "Hollows" / "Nobles" vs. "Well-Bound")
+  - Page II: The Noble Gas and the Burning Sky, The Xenon Breakthrough (2590) with Xe-142 in Ross 128, Xenon Rift slipspace tunnels, Rift Sickness neuroprotection, and vanguard pilots breathing ionized Xenon/oxygen with electric-violet vascular tracings
+  - The Catalyst of War (2784 – Present): Sol Alliance deep-core prospectors at Jupiter and Saturn, crude Rift Gates, and subspace radiation shockwaves
+  - The Opening Salvo: Neptune outer relay going dark, electric-violet rifts tearing open over Titan refineries, Aphelion interceptors and dreadnoughts seizing gas giants, and the cockpit climax
+- [x] Design custom responsive stylesheet `src/lore.css` with sci-fi archival codex styling, deep space gradients, electric-violet accents, and divergence cards
+- [x] Register `lore` entrypoint in `vite.config.js` and verify clean production build in `dist/`
+- [x] Link to `/lore/` in primary header navigation and footer across `index.html`, `privacy/index.html`, and `terms/index.html`
+- [x] Add comprehensive test suite in `tests/lore.spec.js` covering content accuracy, metadata, navigation, keyboard accessibility, no-JS mode, and responsive layout across breakpoints
