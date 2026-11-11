@@ -23,8 +23,8 @@ Node 22.12+ recommended. Tests run against production preview on port 4173, on d
 - Current fighter loadouts: Interceptor pairs **Pulse Scatter** (3-bolt close-range spread) with **Phase Dash** (reduced incoming damage while dashing); Striker pairs **Plasma Cannon** (rapid mid-range fire) with **Weapon Overcharge** (`1.6×` fire rate); Dreadnought pairs **Railgun** (high-velocity long-range heavy rounds) with **Photon Torpedoes** (3-torpedo salvo dealing `5×` damage to capital ships, turrets, and bays). Space/Shift, either gamepad bumper, or the touch Special button activates the class special; ordinary boost is disabled.
 - Main menu uses Rift War (online multiplayer), Practice, Hangar (ship selection), Settings (controller, touch, audio/announcer voices), and the top-right Pilot Profile chip (call sign, account sign-in/sign-out, career stats, account deletion).
 - iPhone, iPad, and Android support built-in floating twin-stick touch controls (with Auto/On/Off and Left-handed options in Settings) or a compatible controller. Apple TV requires a compatible controller to fly (Siri Remote navigates menus, and pilots can sign in from a phone at `/link/`; Siri Remote alone cannot fly).
-- No published release was returned by GitHub when this refresh was checked. Keep email playtest CTAs; do not invent direct downloads, a public TestFlight invite, App Store availability, or launch dates.
-- Playtest, support, and contact links use `support@codersbrew.com`. They do not enroll users or guarantee access.
+- No published release was returned by GitHub when this refresh was checked. Keep the Apple TestFlight waitlist form and `mailto:` playtest CTAs; do not invent direct downloads, a public `testflight.apple.com` invite link, App Store availability, or launch dates.
+- TestFlight waitlist signups post to `supabase/functions/testflight-signup` (stored in `private.testflight_signups` in Supabase Postgres, with optional Resend Contacts sync and one-time confirmation email; see [TESTFLIGHT_SIGNUP_PLAN.md](TESTFLIGHT_SIGNUP_PLAN.md)). Direct playtest, support, and opt-out links use `support@codersbrew.com`; neither guarantees immediate access.
 - Public legal pages: `/privacy/` and `/terms/`. See [LEGAL_CONTENT.md](LEGAL_CONTENT.md) for scope, maintenance, and release review.
 - The website does not show live server status. The game checks galaxy availability and build compatibility.
 - Gameplay images are in-engine development captures, labeled as such. The Fleet Battle hero shows the visual fleet-strip HUD, reserve pips, and capital silhouettes. Ship art is rendered from game models.
@@ -72,4 +72,4 @@ Branding uses lettering extracted from the game's `Assets/XenonRift/Art/UI/Xenon
 
 ## Deployment
 
-PR checks build and run browser tests. Pushes to `main` run the same checks, then publish `dist/` through `.github/workflows/deploy.yml`. No backend, email collection, or live-status service is included.
+PR checks build and run browser tests. Pushes to `main` run the same checks, then publish `dist/` through `.github/workflows/deploy.yml`. Account links (`/auth/`, `/link/`) and the TestFlight waitlist form (`/#play`) call the hosted Supabase project using only the public anon key; deploy the matching Supabase migration and Edge Function before merging backend-dependent changes (see [TESTFLIGHT_SIGNUP_PLAN.md](TESTFLIGHT_SIGNUP_PLAN.md)).

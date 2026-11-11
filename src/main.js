@@ -1,4 +1,5 @@
-// Optional screenshot enlargement. Without JavaScript, the link opens the full image.
+// Optional screenshot enlargement and TestFlight waitlist form enhancement.
+import { initTestflightSignup } from './testflight.js';
 const dialog = document.getElementById('lightbox');
 const image = document.getElementById('lightbox-image');
 const caption = document.getElementById('lightbox-caption');
@@ -42,3 +43,4 @@ dialog.addEventListener('close', () => {
 });
 
 document.getElementById('copyright-year').textContent = new Date().getFullYear();
+initTestflightSignup();

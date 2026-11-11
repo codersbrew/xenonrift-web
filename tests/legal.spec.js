@@ -83,7 +83,7 @@ test('home and account pages link legal documents and use only new support addre
 test('privacy explains real account data and external website services', async ({ page }) => {
   await page.goto('/privacy/');
   const article = page.getByRole('article');
-  for (const disclosure of ['Supabase', 'Google Fonts', 'GitHub Pages', 'Apple', 'career statistics', 'do not sell personal information', 'local storage']) {
+  for (const disclosure of ['Supabase', 'Resend', 'TestFlight waitlist', 'Google Fonts', 'GitHub Pages', 'Apple', 'career statistics', 'do not sell personal information', 'local storage']) {
     await expect(article).toContainText(disclosure);
   }
 });

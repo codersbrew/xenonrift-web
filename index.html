@@ -91,12 +91,45 @@
     </section>
 
     <section class="section container" id="play" aria-labelledby="play-title">
-      <div class="section-heading"><p class="eyebrow">YOUR FIRST FLIGHT</p><h2 id="play-title">Come help shape the Rift.</h2><p>Xenon Rift is in active development. Contact us for current build availability and playtest instructions.</p></div>
+      <div class="section-heading"><p class="eyebrow">YOUR FIRST FLIGHT</p><h2 id="play-title">Come help shape the Rift.</h2><p>Xenon Rift is in active development. Join the Apple TestFlight waitlist below, or contact us directly for Mac playtest builds and testing questions.</p></div>
+      <div class="testflight-card" id="testflight-signup">
+        <div data-signup-state="form">
+          <p class="eyebrow">APPLE TESTFLIGHT WAITLIST</p>
+          <h3>Join the TestFlight email list</h3>
+          <p class="testflight-copy">Enter the email tied to your Apple ID and choose the Apple hardware you fly on. We send TestFlight invites in waves as testing slots open; joining the list does not guarantee immediate access.</p>
+          <form class="testflight-form" id="testflight-form" novalidate>
+            <fieldset class="testflight-devices">
+              <legend>Devices you want to test on</legend>
+              <div class="device-options">
+                <label class="device-chip"><input type="checkbox" name="platform" value="iphone" checked><span>iPhone</span></label>
+                <label class="device-chip"><input type="checkbox" name="platform" value="ipad"><span>iPad</span></label>
+                <label class="device-chip"><input type="checkbox" name="platform" value="apple_tv"><span>Apple TV</span></label>
+                <label class="device-chip"><input type="checkbox" name="platform" value="mac"><span>Mac</span></label>
+              </div>
+            </fieldset>
+            <div class="testflight-row">
+              <label class="testflight-email"><span>Apple ID email</span><input name="email" type="email" autocomplete="email" required inputmode="email" spellcheck="false" placeholder="pilot@example.com"></label>
+              <button class="btn btn-primary" type="submit">Join TestFlight list</button>
+            </div>
+            <div class="hp-field" aria-hidden="true"><label>Company<input name="company" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <p class="form-message" role="alert" hidden></p>
+            <p class="testflight-fallback" hidden><a data-fallback-mailto href="mailto:support@codersbrew.com?subject=Xenon%20Rift%20TestFlight%20signup">Send your TestFlight request via email app instead <span aria-hidden="true">↗</span></a></p>
+            <p class="testflight-privacy">Used only for Xenon Rift playtest invites and updates. See our <a href="./privacy/">Privacy Policy</a> or email <a href="mailto:support@codersbrew.com?subject=Remove%20from%20Xenon%20Rift%20TestFlight%20list">support@codersbrew.com</a> to leave the list.</p>
+          </form>
+          <noscript><p class="testflight-noscript">JavaScript is turned off. Use <strong>Ask about Apple device testing</strong> below to email your TestFlight request.</p></noscript>
+        </div>
+        <div data-signup-state="done" hidden>
+          <p class="eyebrow">ON THE WAITLIST</p>
+          <h3 tabindex="-1">TestFlight request saved.</h3>
+          <p class="testflight-copy">We recorded <strong data-signup-email></strong> for <strong data-signup-devices></strong>. When a TestFlight wave opens for your hardware, Apple sends the invite to that address.</p>
+          <p class="testflight-actions"><button class="link-button" type="button" data-signup-edit>Update devices or use a different email</button></p>
+        </div>
+      </div>
       <div class="playtest-links">
-        <a class="btn btn-primary" href="mailto:support@codersbrew.com?subject=Xenon%20Rift%20Mac%20playtest">Request Mac playtest <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-secondary" href="mailto:support@codersbrew.com?subject=Xenon%20Rift%20Mac%20playtest">Request Mac playtest <span aria-hidden="true">↗</span></a>
         <a class="btn btn-secondary" href="mailto:support@codersbrew.com?subject=Xenon%20Rift%20Apple%20device%20testing">Ask about Apple device testing <span aria-hidden="true">↗</span></a>
       </div>
-      <p class="playtest-note">These links open your email app, not a download. Access is not guaranteed. Mac supports keyboard &amp; mouse or gamepad. iPhone, iPad, and Android support built-in touch flight controls or a compatible controller. Apple TV gameplay requires a compatible controller to fly (the Siri Remote navigates menus, and you can sign in from your phone at <a href="./link/">xenonrift.com/link</a>; Siri Remote alone is not supported for flight).</p>
+      <p class="playtest-note">Direct email links above open your email app, not a download. Access is not guaranteed. Mac supports keyboard &amp; mouse or gamepad. iPhone, iPad, and Android support built-in touch flight controls or a compatible controller. Apple TV gameplay requires a compatible controller to fly (the Siri Remote navigates menus, and you can sign in from your phone at <a href="./link/">xenonrift.com/link</a>; Siri Remote alone is not supported for flight).</p>
       <ol class="steps-grid">
         <li><h3>1. Try Practice</h3><p>Choose your default ship in the Hangar, then open Practice to fly a 12v12 Fleet Battle, Team Deathmatch, or Offline Rift War against bots.</p></li>
         <li><h3>2. Sign in</h3><p>Open Rift War or your Pilot Profile and sign in with Google, Apple, or email (or with your phone on Apple TV). Choose a unique call sign; your profile and career stats follow your account.</p></li>
