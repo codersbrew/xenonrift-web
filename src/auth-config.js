@@ -5,3 +5,5 @@ export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiO
 export const RESET_URL = 'https://xenonrift.com/auth/reset/';
 // Signing an Apple TV in (link/): Google / Apple come back here. On the Supabase project's redirect allow-list.
 export const LINK_URL = 'https://xenonrift.com/link/';
+// Apple TestFlight waitlist signup on /#play (supabase/functions/testflight-signup).
+export const TESTFLIGHT_SIGNUP_URL = `${SUPABASE_URL}/functions/v1/testflight-signup`;

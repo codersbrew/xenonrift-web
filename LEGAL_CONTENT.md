@@ -10,7 +10,7 @@ Both documents are static, public, indexable HTML and work without JavaScript. V
 
 ## Scope and maintenance
 
-Privacy covers the game and website: Supabase accounts, optional Google/Apple sign-in, public call signs/ship/career data, online diagnostics, session storage, support messages, GitHub Pages, external Google Fonts, retention/deletion and applicable data rights.
+Privacy covers the game and website: Supabase accounts, private TestFlight waitlist signups and optional Resend contact/email delivery, optional Google/Apple sign-in, public call signs/ship/career data, online diagnostics, session storage, support messages, GitHub Pages, external Google Fonts, retention/deletion and applicable data rights.
 
 Terms cover eligibility, fair play, accounts, a limited game license, gameplay sharing, development-build changes, feedback, suspension, deletion and mandatory consumer rights. No fabricated business address, jurisdiction, arbitration requirement, subscription or specific retention deadline has been inserted.
 
