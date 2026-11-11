@@ -52,7 +52,7 @@ test('all lore narrative sections and canon details are present', async ({ page 
   await expect(article).toContainText('Proxima, Ross 128, Luyten, and the seven-world chain of TRAPPIST-1');
   await expect(article).toContainText('cryogenic vaults for generations');
   await expect(article).toContainText('Earth, Luna, Mars, and the Jovian moons');
-  await expect(article).toContainText('They did not die.');
+  await expect(article).toContainText('The arks made it.');
 
   // The Birth of the Aphelion Collective & Adaptation
   await expect(article).toContainText('The Birth of the Aphelion Collective');
@@ -86,6 +86,11 @@ test('all lore narrative sections and canon details are present', async ({ page 
   await expect(article).toContainText('outer Sol Relay at Neptune went dark');
   await expect(article).toContainText('Titan’s Xenon refineries');
   await expect(article).toContainText('You sit in the cockpit on the edge of the breach.');
+});
+
+test('lore copy contains no em dashes', async ({ page }) => {
+  await page.goto('/lore/');
+  expect(await page.locator('body').innerText()).not.toContain('—');
 });
 
 test('codex table of contents links resolve and jump to target sections', async ({ page }) => {
