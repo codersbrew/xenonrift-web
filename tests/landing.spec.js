@@ -50,7 +50,7 @@ test('gameplay copy describes current fleets, factions, galaxy, and specials', a
   const battle = page.locator('#fleet-battle');
   await expect(page.locator('.hero-description')).toContainText('persistent galaxy');
   for (const fact of [
-    'SOL ALLIANCE', 'ZHURAK HEGEMONY', 'carrier and two or three destroyers',
+    'SOL ALLIANCE', 'APHELION COLLECTIVE', 'carrier and two or three destroyers',
     'main guns and point-defense turrets', '100-fighter reserve', 'base Xenon Rift',
     'double the respawn wait', 'Choose your side once per Rift Cycle',
     'No match clock', 'Team Deathmatch', 'Offline Rift War', 'fleet-strip HUD', 'announcer',
