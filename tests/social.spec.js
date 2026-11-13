@@ -23,7 +23,7 @@ async function expectDiscordLink(link) {
   expect(bounds.height).toBeGreaterThanOrEqual(44);
 }
 
-for (const path of ['/', '/lore/', '/privacy/', '/terms/']) {
+for (const path of ['/', '/lore/', '/updates/', '/privacy/', '/terms/']) {
   test(`${path} footer has accessible Discord icon link`, async ({ page }) => {
     await page.goto(path);
     const link = page.getByRole('contentinfo')
