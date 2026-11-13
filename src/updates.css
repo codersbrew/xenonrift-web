@@ -1,0 +1,72 @@
+/* Updates: playtest release notes (data: public/updates.json) */
+
+.updates-page {
+  background-image: radial-gradient(ellipse 80% 45% at 50% -10%, rgba(102, 244, 237, .08), transparent 70%);
+  background-attachment: fixed;
+}
+
+.updates-main { max-width: 860px; padding-block: 3.5rem 6rem; }
+
+.updates-heading { margin-bottom: 3rem; }
+.updates-heading h1 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  letter-spacing: -.04em;
+  margin-block: .6rem 1rem;
+}
+.updates-summary { color: var(--muted); max-width: 640px; }
+
+.updates-list { display: grid; gap: 1.5rem; }
+.updates-status { color: var(--muted); padding: 1.5rem; border: 1px dashed var(--line); border-radius: 3px; }
+.updates-status a { color: var(--cyan); }
+
+.update-entry {
+  padding: 1.75rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+.update-entry:target { border-color: var(--cyan); }
+
+.update-meta { color: var(--muted); font-size: .8rem; letter-spacing: .02em; }
+.update-entry h2 { font-size: clamp(1.25rem, 3.5vw, 1.6rem); line-height: 1.25; margin-block: .35rem .8rem; }
+.update-anchor { text-decoration: none; }
+.update-anchor:hover { color: var(--cyan); }
+
+.update-platforms { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0 0 1.2rem; padding: 0; }
+.update-platforms li {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  padding: .2rem .6rem;
+  border: 1px solid rgba(102, 244, 237, .35);
+  border-radius: 999px;
+}
+
+.update-section + .update-section { margin-top: 1.2rem; }
+.update-section h3 {
+  font-size: .78rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: .4rem;
+}
+.update-section ul { margin: 0; padding-left: 1.2rem; }
+.update-section li + li { margin-top: .25rem; }
+.update-section p { color: var(--muted); }
+.update-section a { color: var(--cyan); }
+.update-section code {
+  font-size: .9em;
+  padding: .05rem .35rem;
+  background: rgba(170, 193, 220, .1);
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .updates-main { padding-block: 2.5rem 4rem; }
+  .update-entry { padding: 1.25rem; }
+}
