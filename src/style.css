@@ -41,6 +41,10 @@ nav a:hover, .footer-content a:hover { color: var(--cyan); }
 .btn-secondary:hover, .btn-small:hover { border-color: var(--cyan); color: var(--cyan); }
 .btn-small { font-size: .85rem; padding: .5rem 1rem; }
 .button-group, .playtest-links { display: flex; flex-wrap: wrap; gap: .8rem; }
+.social-icon { width: 24px; height: 24px; flex-shrink: 0; }
+.social-links { display: flex; flex-wrap: wrap; gap: .75rem; }
+.social-link { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; padding: .5rem .8rem; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); color: var(--text); font-size: .85rem; text-decoration: none; }
+.social-link:hover { border-color: var(--cyan); color: var(--cyan); }
 .text-cyan { color: var(--cyan); }
 .eyebrow { color: var(--cyan); font-size: .69rem; font-weight: 600; letter-spacing: .13em; line-height: 1.7; text-transform: uppercase; }
 .hero { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 3rem; padding-block: 4.5rem; }
