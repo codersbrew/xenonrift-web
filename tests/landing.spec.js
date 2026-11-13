@@ -28,7 +28,7 @@ test('navigation and the current Fleet Battle screenshot resolve', async ({ page
   await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'The battle' }).click();
   await expect(page.locator('#fleet-battle')).toBeInViewport();
   for (const path of [
-    '/images/gameplay/rift-gate.webp', '/images/gameplay/rift-gate-800.webp',
+    '/images/gameplay/earth-fleet.webp', '/images/gameplay/earth-fleet-800.webp',
     '/images/gameplay/fleet-hud.webp', '/images/gameplay/fleet-hud-800.webp',
     '/images/gameplay/galaxy-map.webp', '/images/gameplay/galaxy-map-800.webp',
     '/images/gameplay/fleet-arena.webp', '/images/gameplay/fleet-arena-800.webp',
@@ -50,18 +50,19 @@ test('gameplay copy describes current fleets, factions, galaxy, and specials', a
   const battle = page.locator('#fleet-battle');
   await expect(page.locator('.hero-description')).toContainText('persistent galaxy');
   for (const fact of [
-    'SOL ALLIANCE', 'ZHURAK HEGEMONY', 'carrier and two or three destroyers',
+    'SOL ALLIANCE', 'APHELION COLLECTIVE', 'carrier and two or three destroyers',
     'main guns and point-defense turrets', '100-fighter reserve', 'base Xenon Rift',
-    'double the respawn wait', 'Choose your side once per Rift Cycle',
+    'double the respawn wait', 'once per Rift Cycle',
     'No match clock', 'Team Deathmatch', 'Offline Rift War', 'fleet-strip HUD', 'announcer',
+    '15 rifts', 'Orion Spur', 'Earth and Titan', 'mix of all three classes',
   ]) {
     await expect(battle).toContainText(fact);
   }
   const cards = page.locator('.ship-card');
-  await expect(cards).toHaveCount(3);
+  await expect(cards).toHaveCount(6);
   for (const primary of ['PULSE SCATTER', 'PLASMA CANNON', 'RAILGUN']) await expect(page.locator('#ships')).toContainText(primary);
   for (const special of ['PHASE DASH', 'WEAPON OVERCHARGE', 'PHOTON TORPEDOES']) await expect(page.locator('#ships')).toContainText(special);
-  for (const retired of ['10v10', 'Cyan Vanguard', 'Ember Syndicate', 'Capture the Depot',
+  for (const retired of ['10v10', 'Cyan Vanguard', 'Ember Syndicate', 'Zhurak Hegemony', 'ZHURAK HEGEMONY', 'THREE SHIPS', 'Kiln Gate', 'Capture the Depot',
     'Offense vs Defense', 'BARRIER PULSE', 'session-only', 'Boost', 'no touch flight controls']) {
     await expect(page.locator('body')).not.toContainText(retired);
   }
@@ -72,7 +73,7 @@ test('metadata matches current gameplay and uses the current screenshot', async 
   await expect(page).toHaveTitle('Xenon Rift — Your Ship. Your Fleet. Your Fight.');
   await expect(page.locator('meta[name=description]')).toHaveAttribute('content', /12v12 Fleet Battles.*persistent galaxy/);
   for (const selector of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
-    await expect(page.locator(selector)).toHaveAttribute('content', 'https://xenonrift.com/images/gameplay/rift-gate.webp');
+    await expect(page.locator(selector)).toHaveAttribute('content', 'https://xenonrift.com/images/gameplay/earth-fleet.webp');
   }
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://xenonrift.com/');
 });
@@ -84,8 +85,8 @@ test('keyboard opens image dialog, traps focus, closes, and restores focus', asy
   await page.keyboard.press('Enter');
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
-  await expect(dialog).toContainText('Sol Alliance Orbital Containment Ring, singularity beams, and Bengal carrier');
-  await expect(dialog.locator('img')).toHaveAttribute('alt', /cyan carrier and destroyers/);
+  await expect(dialog).toContainText('Fighters and capital ships exchanging fire above Earth');
+  await expect(dialog.locator('img')).toHaveAttribute('alt', /cyan capital ship/);
   await page.keyboard.press('Tab');
   expect(await page.evaluate(() => !!document.activeElement.closest('dialog'))).toBe(true);
   await page.keyboard.press('Shift+Tab');
@@ -120,7 +121,7 @@ test('first-flight instructions use accounts and the galaxy, not manual server s
   const steps = page.locator('.steps-grid');
   for (const fact of ['Hangar', 'Practice', 'Offline Rift War', 'Rift War', 'Pilot Profile',
     'Google, Apple, or email', 'unique call sign', 'career stats',
-    'choose your side', 'galactic map', 'Drop In', 'No server address to enter']) await expect(steps).toContainText(fact);
+    'choose your side', 'galactic map', 'Deploy to Front', 'Drop In', 'No server address to enter']) await expect(steps).toContainText(fact);
   expect(await page.locator('[data-copy], #server-address, #starfield').count()).toBe(0);
 });
 
@@ -138,6 +139,9 @@ test('FAQ and controls explain persistence, offline play, and class specials', a
   await expect(special).toContainText('Special button above aim stick');
   await expect(page.locator('.controls-panel')).toContainText('Left-handed layout');
   await expect(page.locator('.controls-panel')).toContainText('announcer voices');
+  await expect(page.locator('.controls-panel')).toContainText('Announcer Speech defaults to Essential');
+  await page.getByText('How does progression work?', { exact: true }).click();
+  await expect(page.getByText('Current development builds track battle score', { exact: false })).toContainText('still being verified for playtests');
   await expect(page.getByRole('table')).not.toContainText('Boost');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

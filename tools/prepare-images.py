@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("game", nargs="?", type=Path, default=ROOT.parent / "xenonrift")
 mode = parser.add_mutually_exclusive_group()
 mode.add_argument("--ships-only", action="store_true", help="Leave gameplay captures untouched")
-mode.add_argument("--fleet-only", action="store_true", help="Export the Fleet Battle capture only")
+mode.add_argument("--fleet-only", action="store_true", help="Export current fleet HUD, arena and galaxy map only")
 args = parser.parse_args()
 GAME = args.game.expanduser()
 SOURCE = GAME / "Logs" / "Screenshots"
@@ -28,30 +28,12 @@ def export(image, destination, width):
     print(f"{destination.relative_to(ROOT)}: {destination.stat().st_size // 1024} KB")
 
 
-if args.fleet_only:
+if not args.ships_only:
+    # Export only captures used by current gallery; preserve hero video/still.
     for name, filename in {
-        "fleet": "fleet_2_cyan_fleet.png",
-        "rift-gate": "rift_gate_cyan_fleet_context.png",
         "fleet-hud": "fleet_5_hud.png",
         "fleet-arena": "fleet_1_engaged.png",
         "galaxy-map": "galaxy_1_map.png",
-    }.items():
-        with Image.open(SOURCE / filename) as image:
-            image = image.convert("RGB")
-            export(image, ROOT / f"public/images/gameplay/{name}.webp", image.width)
-            export(image, ROOT / f"public/images/gameplay/{name}-800.webp", 800)
-
-if not args.ships_only and not args.fleet_only:
-    for name, filename in {
-        "fleet": "fleet_2_cyan_fleet.png",
-        "rift-gate": "rift_gate_cyan_fleet_context.png",
-        "fleet-hud": "fleet_5_hud.png",
-        "fleet-arena": "fleet_1_engaged.png",
-        "galaxy-map": "galaxy_1_map.png",
-        "skirmish": "06_skirmish.png",
-        "boost": "04_boost.png",
-        "combat": "02_combat.png",
-        "galaxy": "galaxy_1_map.png",
     }.items():
         with Image.open(SOURCE / filename) as image:
             image = image.convert("RGB")
@@ -59,8 +41,17 @@ if not args.ships_only and not args.fleet_only:
             export(image, ROOT / f"public/images/gameplay/{name}-800.webp", 800)
 
 if not args.fleet_only:
-    for name in ("Interceptor", "Striker", "Dreadnought"):
-        with Image.open(SOURCE / f"ship_{name}_perspective.png") as image:
+    # Identical gameplay camera angle and scale for both factions. Names map to
+    # ShipNames.DisplayName in game source; Aphelion shares corresponding class stats.
+    for name, filename in {
+        "interceptor": "ship_Interceptor.png",
+        "striker": "ship_Striker.png",
+        "dreadnought": "ship_Dreadnought.png",
+        "scythe": "ship_Interceptor_aphelion.png",
+        "crescent": "ship_Striker_aphelion.png",
+        "juggernaut": "ship_Dreadnought_aphelion.png",
+    }.items():
+        with Image.open(SOURCE / filename) as image:
             # Remove rendered labels and excess background; retain entire ship.
-            image = image.convert("RGB").crop((430, 200, 1150, 740))
-            export(image, ROOT / f"public/images/ships/{name.lower()}.webp", 720)
+            image = image.convert("RGB").crop((360, 105, 1240, 765))
+            export(image, ROOT / f"public/images/ships/{name}.webp", 720)

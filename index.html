@@ -10,12 +10,12 @@
   <meta property="og:title" content="Xenon Rift — Your Ship. Your Fleet. Your Fight.">
   <meta property="og:description" content="12v12 fighters. Carriers and destroyers. One persistent galactic war.">
   <meta property="og:url" content="https://xenonrift.com/">
-  <meta property="og:image" content="https://xenonrift.com/images/gameplay/rift-gate.webp">
-  <meta property="og:image:alt" content="Sol Alliance Orbital Containment Ring, carrier, and fighters in a Xenon Rift development build">
+  <meta property="og:image" content="https://xenonrift.com/images/gameplay/earth-fleet.webp">
+  <meta property="og:image:alt" content="Fighters and a cyan capital ship exchanging fire above Earth in a Xenon Rift development build">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Xenon Rift — Your Ship. Your Fleet. Your Fight.">
   <meta name="twitter:description" content="12v12 fighters. Carriers and destroyers. One persistent galactic war.">
-  <meta name="twitter:image" content="https://xenonrift.com/images/gameplay/rift-gate.webp">
+  <meta name="twitter:image" content="https://xenonrift.com/images/gameplay/earth-fleet.webp">
   <meta name="theme-color" content="#070a10">
   <link rel="icon" type="image/png" sizes="128x128" href="./favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
@@ -46,16 +46,23 @@
         <p class="hero-note">Mac, iPhone, iPad &amp; Apple TV TestFlight · Touch &amp; controller support</p>
       </div>
       <figure class="hero-visual">
-        <a class="capture-link" href="./images/gameplay/rift-gate.webp" data-full="./images/gameplay/rift-gate.webp" data-caption="Sol Alliance Orbital Containment Ring, singularity beams, and Bengal carrier at Xenon Outpost — in-game development capture" aria-label="Enlarge Fleet Battle capture">
-          <img src="./images/gameplay/rift-gate.webp" srcset="./images/gameplay/rift-gate-800.webp 800w, ./images/gameplay/rift-gate.webp 1600w" sizes="(max-width: 900px) 92vw, 55vw" width="1600" height="900" alt="A cyan carrier and destroyers alongside the Sol Alliance Orbital Containment Ring and fighters warping in across open space" fetchpriority="high">
-          <span class="capture-enlarge" aria-hidden="true">↗</span>
-        </a>
-        <figcaption>In-game development capture · Sol Alliance Xenon Rift &amp; carrier</figcaption>
+        <div class="hero-media">
+          <a class="capture-link" href="./images/gameplay/earth-fleet.webp" data-full="./images/gameplay/earth-fleet.webp" data-caption="Fighters and capital ships exchanging fire above Earth — in-game development capture, offline bot gameplay" aria-label="Enlarge Fleet Battle capture">
+            <img src="./images/gameplay/earth-fleet.webp" srcset="./images/gameplay/earth-fleet-800.webp 800w, ./images/gameplay/earth-fleet.webp 1600w" sizes="(max-width: 900px) 92vw, 55vw" width="1600" height="900" alt="Fighters and a cyan capital ship exchanging cyan and magenta fire above Earth" fetchpriority="high">
+            <span class="capture-enlarge" aria-hidden="true">↗</span>
+          </a>
+          <video id="hero-video" data-src="./videos/earth-fleet-gameplay.mp4" width="1280" height="720" muted loop playsinline preload="none" aria-hidden="true" hidden></video>
+        </div>
+        <figcaption>
+          <span>In-game development capture · Fleet Battle over Earth · Offline bots</span>
+          <button class="hero-video-toggle" type="button" aria-controls="hero-video" hidden>Play gameplay video</button>
+          <span id="hero-video-status" class="sr-only" role="status"></span>
+        </figcaption>
       </figure>
     </section>
 
     <section class="section container" id="fleet-battle" aria-labelledby="battle-title">
-      <div class="section-heading"><p class="eyebrow">SOL ALLIANCE / ZHURAK HEGEMONY</p><h2 id="battle-title">Small fighter. Big battle.</h2></div>
+      <div class="section-heading"><p class="eyebrow">SOL ALLIANCE / APHELION COLLECTIVE</p><h2 id="battle-title">Small fighter. Big battle.</h2></div>
       <div class="feature-grid">
         <article class="feature-card">
           <a class="capture-link" href="./images/gameplay/fleet-hud.webp" data-full="./images/gameplay/fleet-hud.webp" data-caption="Carrier, destroyers, fighters, and the fleet-strip HUD with on-ship rings and hex shield bubble — in-game development capture" aria-label="Enlarge visual HUD and shield capture">
@@ -65,31 +72,60 @@
           <div class="feature-copy"><h3>Break the enemy fleet</h3><p>Each faction fields a carrier and two or three destroyers armed with heavy main guns and point-defense turrets. Strip enemy turrets, wreck the carrier’s launch bays, or drain its 100-fighter reserve so their pilots must warp in from their base Xenon Rift with double the respawn wait. Destroy every enemy capital ship to win the rift. No match clock.</p></div>
         </article>
         <article class="feature-card">
-          <a class="capture-link" href="./images/gameplay/galaxy-map.webp" data-full="./images/gameplay/galaxy-map.webp" data-caption="The 15-rift Galactic Map with per-cycle faction lock and Kiln Gate front briefing — in-game development capture" aria-label="Enlarge Galactic Map capture">
-            <img src="./images/gameplay/galaxy-map.webp" srcset="./images/gameplay/galaxy-map-800.webp 800w, ./images/gameplay/galaxy-map.webp 1440w" sizes="(max-width: 680px) 92vw, 31vw" width="1440" height="900" alt="The 15-rift Galactic Map showing Sol Alliance and Zhurak Hegemony territory, cycle faction lock banner, and Kiln Gate briefing" loading="lazy">
+          <a class="capture-link" href="./images/gameplay/galaxy-map.webp" data-full="./images/gameplay/galaxy-map.webp" data-caption="The 15-rift Orion Spur Galactic Map with Sol Alliance and Aphelion Collective territory, faction lock, and Ross 128 front briefing — in-game development capture" aria-label="Enlarge Galactic Map capture">
+            <img src="./images/gameplay/galaxy-map.webp" srcset="./images/gameplay/galaxy-map-800.webp 800w, ./images/gameplay/galaxy-map.webp 1440w" sizes="(max-width: 680px) 92vw, 31vw" width="1440" height="900" alt="The 15-rift Galactic Map showing cyan Sol Alliance and magenta Aphelion Collective territory, faction lock, and Ross 128 briefing" loading="lazy">
             <span class="capture-enlarge" aria-hidden="true">↗</span>
           </a>
-          <div class="feature-copy"><h3>Move the front line</h3><p>Choose your side once per Rift Cycle—your faction holds until a capital falls and the galaxy re-forms. Pick an open front on the galactic map and drop into its battle. Victories capture and lock rifts, opening adjacent fronts. Bots fill empty fighter slots and keep battles moving when pilots are away.</p></div>
+          <div class="feature-copy"><h3>Move the front line</h3><p>Choose Sol Alliance or Aphelion Collective once per Rift Cycle—your faction holds until a capital falls and the galaxy re-forms. Fight across 15 rifts in the Orion Spur, from Earth and Titan to Aphelion’s red-dwarf worlds. Pick an open front on the galactic map and drop into its battle. Victories capture and lock rifts, opening adjacent fronts.</p></div>
         </article>
         <article class="feature-card">
-          <a class="capture-link" href="./images/gameplay/fleet-arena.webp" data-full="./images/gameplay/fleet-arena.webp" data-caption="Full 12v12 Fleet Battle arena with Sol Alliance and Zhurak Hegemony Orbital Containment Rings and engaged fleets — in-game development capture" aria-label="Enlarge full Fleet Battle arena capture">
-            <img src="./images/gameplay/fleet-arena.webp" srcset="./images/gameplay/fleet-arena-800.webp 800w, ./images/gameplay/fleet-arena.webp 1600w" sizes="(max-width: 680px) 92vw, 31vw" width="1600" height="900" alt="Wide view of a 12v12 Fleet Battle between cyan and bronze fleets framed by both base Xenon Rift Orbital Containment Rings" loading="lazy">
+          <a class="capture-link" href="./images/gameplay/fleet-arena.webp" data-full="./images/gameplay/fleet-arena.webp" data-caption="Full 12v12 Fleet Battle arena with Sol Alliance and Aphelion Collective base rifts and engaged fleets — in-game development capture" aria-label="Enlarge full Fleet Battle arena capture">
+            <img src="./images/gameplay/fleet-arena.webp" srcset="./images/gameplay/fleet-arena-800.webp 800w, ./images/gameplay/fleet-arena.webp 1600w" sizes="(max-width: 680px) 92vw, 31vw" width="1600" height="900" alt="Wide view of a 12v12 Fleet Battle between cyan Sol Alliance and magenta Aphelion Collective fleets, framed by both base rifts" loading="lazy">
             <span class="capture-enlarge" aria-hidden="true">↗</span>
           </a>
-          <div class="feature-copy"><h3>Learn offline</h3><p>Practice a 12v12 Fleet Battle, Team Deathmatch, or a full Offline Rift War against bots without an account or server connection. Track both fleets on the visual fleet-strip HUD and ship rings, while the ship-computer announcer calls out carrier attacks, reactor blasts, and forming gravity wells.</p></div>
+          <div class="feature-copy"><h3>Learn offline</h3><p>Practice a 12v12 Fleet Battle, Team Deathmatch, or a full Offline Rift War against bots without an account or server connection. Bots fly a mix of all three classes and fill empty online fighter slots too. Track fleets and reserves on the fleet-strip HUD, read shields and hull on ship rings, and hear the ship-computer announcer call out threats.</p></div>
         </article>
       </div>
     </section>
 
     <section class="section section-tinted" id="ships" aria-labelledby="ships-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">THREE SHIPS / THREE WAYS TO FIGHT</p><h2 id="ships-title">Find your fighter.</h2></div>
-        <div class="ships-grid">
-          <article class="ship-card"><img src="./images/ships/interceptor.webp" width="720" height="540" alt="White delta-wing Interceptor with twin nose cannons and cyan energy conduits" loading="lazy"><div class="ship-copy"><h3>Interceptor</h3><p>Fast and light. Pick your angle, strike, and slip away.</p><div class="ability"><span>PRIMARY / PULSE SCATTER</span><p>Fires a three-bolt close-range spread (6° fan, 40 u range) built for fast hit-and-run passes.</p></div><div class="ability"><span>SPECIAL / PHASE DASH</span><p>Dash in your movement direction to reposition while taking reduced damage. You cannot fire during the dash.</p></div></div></article>
-          <article class="ship-card"><img src="./images/ships/striker.webp" width="720" height="540" alt="Dark tactical Striker with outboard cannon pods, swept wings, and cyan dorsal conduits" loading="lazy"><div class="ship-copy"><h3>Striker</h3><p>Balanced speed and firepower. A good place to start.</p><div class="ability"><span>PRIMARY / PLASMA CANNON</span><p>Rapid, accurate single-bolt plasma fire (45 u range) for steady mid-range dogfight pressure.</p></div><div class="ability"><span>SPECIAL / WEAPON OVERCHARGE</span><p>Temporarily increase your cannon’s fire rate (1.6×) to press the attack.</p></div></div></article>
-          <article class="ship-card"><img src="./images/ships/dreadnought.webp" width="720" height="540" alt="Broad siege Dreadnought with armored shoulders, a central reactor cage, and five stern thrusters" loading="lazy"><div class="ship-copy"><h3>Dreadnought</h3><p>Heavy armor and shields. Trade speed for staying power.</p><div class="ability"><span>PRIMARY / RAILGUN</span><p>High-velocity, long-range heavy rounds (110 u/s, 55 u range) that hit hard from outside lighter fighters’ reach.</p></div><div class="ability"><span>SPECIAL / PHOTON TORPEDOES</span><p>Launch a three-torpedo salvo that deals 5× damage to capital ships, turrets, and launch bays.</p></div></div></article>
-        </div>
-        <p class="section-footnote">All three ships are available in practice and online. Balance and visuals are still evolving.</p>
+        <div class="section-heading"><p class="eyebrow">TWO FACTIONS / SIX HULLS / THREE CLASSES</p><h2 id="ships-title">Find your fighter.</h2><p>Sol Alliance and Aphelion Collective each field three distinct hulls. Different silhouettes; matching weapons, specials, and class balance.</p></div>
+        <section class="ship-faction" data-faction="sol" aria-labelledby="sol-ships-title">
+          <div class="ship-faction-heading"><h3 id="sol-ships-title">Sol Alliance</h3><p>Cyan-lit Alliance hulls.</p></div>
+          <div class="ships-grid">
+            <article class="ship-card" data-class="interceptor">
+              <img src="./images/ships/interceptor.webp" width="720" height="540" alt="White delta-wing Sol Alliance Interceptor with twin nose cannons and cyan conduits" loading="lazy">
+              <div class="ship-copy"><span class="ship-role">Fast attack</span><h4>Interceptor</h4><p>Fast and light. Pick your angle, strike, and slip away.</p><div class="ability"><span>PRIMARY / PULSE SCATTER</span><p>Fire a three-bolt, close-range spread for fast hit-and-run passes.</p></div><div class="ability"><span>SPECIAL / PHASE DASH</span><p>Dash in your movement direction with reduced incoming damage. You cannot fire during the dash.</p></div></div>
+            </article>
+            <article class="ship-card" data-class="striker">
+              <img src="./images/ships/striker.webp" width="720" height="540" alt="Dark Sol Alliance Striker with outboard cannon pods, swept wings, and cyan dorsal conduits" loading="lazy">
+              <div class="ship-copy"><span class="ship-role">Balanced combat</span><h4>Striker</h4><p>Balanced speed and firepower. A good place to start.</p><div class="ability"><span>PRIMARY / PLASMA CANNON</span><p>Rapid, accurate plasma fire for steady mid-range dogfight pressure.</p></div><div class="ability"><span>SPECIAL / WEAPON OVERCHARGE</span><p>Increase your cannon’s fire rate by 1.6× for four seconds to press the attack.</p></div></div>
+            </article>
+            <article class="ship-card" data-class="dreadnought">
+              <img src="./images/ships/dreadnought.webp" width="720" height="540" alt="Broad Sol Alliance Dreadnought with heavy shoulder armor, cyan emitter rings, and five stern thrusters" loading="lazy">
+              <div class="ship-copy"><span class="ship-role">Heavy combat</span><h4>Dreadnought</h4><p>Heavy armor and shields. Trade speed for staying power.</p><div class="ability"><span>PRIMARY / RAILGUN</span><p>High-velocity, long-range heavy rounds that hit hard from outside lighter fighters’ reach.</p></div><div class="ability"><span>SPECIAL / PHOTON TORPEDOES</span><p>Launch a three-torpedo salvo that deals 5× damage to capital ships, turrets, and launch bays.</p></div></div>
+            </article>
+          </div>
+        </section>
+        <section class="ship-faction" data-faction="aphelion" aria-labelledby="aphelion-ships-title">
+          <div class="ship-faction-heading"><h3 id="aphelion-ships-title">Aphelion Collective</h3><p>Distinct hulls. Magenta energy signatures.</p></div>
+          <div class="ships-grid">
+            <article class="ship-card" data-class="interceptor">
+              <img src="./images/ships/scythe.webp" width="720" height="540" alt="Needle-prowed Aphelion Scythe with forward-swept blade wings and magenta conduits" loading="lazy">
+              <div class="ship-copy"><span class="ship-role">Fast attack</span><h4>Scythe</h4><p>Aphelion’s fast attacker. A narrow hull and swept blades give the light class its own silhouette.</p><div class="ability"><span>PRIMARY / PULSE SCATTER</span><p>Fire a three-bolt, close-range spread for fast hit-and-run passes.</p></div><div class="ability"><span>SPECIAL / PHASE DASH</span><p>Dash in your movement direction with reduced incoming damage. You cannot fire during the dash.</p></div></div>
+            </article>
+            <article class="ship-card" data-class="striker">
+              <img src="./images/ships/crescent.webp" width="720" height="540" alt="Aphelion Crescent with twin forward mandibles, curved wings, and an exposed magenta plasma ring" loading="lazy">
+              <div class="ship-copy"><span class="ship-role">Balanced combat</span><h4>Crescent</h4><p>Aphelion’s balanced fighter. Twin mandibles and a visible plasma core frame its crescent hull.</p><div class="ability"><span>PRIMARY / PLASMA CANNON</span><p>Rapid, accurate plasma fire for steady mid-range dogfight pressure.</p></div><div class="ability"><span>SPECIAL / WEAPON OVERCHARGE</span><p>Increase your cannon’s fire rate by 1.6× for four seconds to press the attack.</p></div></div>
+            </article>
+            <article class="ship-card" data-class="dreadnought">
+              <img src="./images/ships/juggernaut.webp" width="720" height="540" alt="Broad anvil-prowed Aphelion Juggernaut with armored wings and magenta reactor channels" loading="lazy">
+              <div class="ship-copy"><span class="ship-role">Heavy combat</span><h4>Juggernaut</h4><p>Aphelion’s heavy fighter. An anvil prow and broad armor carry the heavy class’s firepower.</p><div class="ability"><span>PRIMARY / RAILGUN</span><p>High-velocity, long-range heavy rounds that hit hard from outside lighter fighters’ reach.</p></div><div class="ability"><span>SPECIAL / PHOTON TORPEDOES</span><p>Launch a three-torpedo salvo that deals 5× damage to capital ships, turrets, and launch bays.</p></div></div>
+            </article>
+          </div>
+        </section>
+        <p class="section-footnote">Choose your practice faction and default ship in the Hangar. In Rift War, your faction choice holds for the current Rift Cycle. All three classes are available on both sides; balance and visuals are still evolving. Images are current in-engine model renders.</p>
       </div>
     </section>
 
@@ -134,14 +170,15 @@
       </div>
       <p class="playtest-note">Direct email links above open your email app, not a download. Access is not guaranteed. Mac supports keyboard &amp; mouse or gamepad. iPhone, iPad, and Android support built-in touch flight controls or a compatible controller. Apple TV gameplay requires a compatible controller to fly (the Siri Remote navigates menus, and you can sign in from your phone at <a href="./link/">xenonrift.com/link</a>; Siri Remote alone is not supported for flight).</p>
       <ol class="steps-grid">
-        <li><h3>1. Try Practice</h3><p>Choose your default ship in the Hangar, then open Practice to fly a 12v12 Fleet Battle, Team Deathmatch, or Offline Rift War against bots.</p></li>
+        <li><h3>1. Try Practice</h3><p>Choose your practice faction and default ship in the Hangar, then open Practice to fly a 12v12 Fleet Battle, Team Deathmatch, or Offline Rift War against bots.</p></li>
         <li><h3>2. Sign in</h3><p>Open Rift War or your Pilot Profile and sign in with Google, Apple, or email (or with your phone on Apple TV). Choose a unique call sign; your profile and career stats follow your account.</p></li>
-        <li><h3>3. Drop in</h3><p>In Rift War, choose your side for the current war cycle, pick an open front on the galactic map, and select Drop In. No server address to enter.</p></li>
+        <li><h3>3. Drop in</h3><p>In Rift War, choose your side—Sol Alliance or Aphelion Collective—for the current Rift Cycle. Pick an open front on the galactic map, select Deploy to Front, then Drop In. No server address to enter.</p></li>
       </ol>
-      <details class="controls-panel"><summary>Flight controls</summary><div class="controls-scroll"><table><caption class="sr-only">Default keyboard, mouse, twin-stick gamepad, and touch controls</caption><thead><tr><th scope="col">Action</th><th scope="col">Keyboard &amp; mouse</th><th scope="col">Gamepad</th><th scope="col">Touch (phone / tablet)</th></tr></thead><tbody><tr><th scope="row">Thrust / strafe</th><td>W / S · A / D (ship-relative)</td><td>Left stick (screen-relative)</td><td>Left thumb floating stick (screen-relative)</td></tr><tr><th scope="row">Aim / fire</th><td>Mouse / left click</td><td>Right stick / right trigger</td><td>Right thumb floating stick (fires while pushed)</td></tr><tr><th scope="row">Ship special</th><td>Space or Left Shift</td><td>Either bumper</td><td>Special button above aim stick</td></tr><tr><th scope="row">Scoreboard</th><td>Hold Tab</td><td>Hold View / Select</td><td>Hold SCORES</td></tr><tr><th scope="row">Return to menu</th><td>Esc</td><td>Start / Menu</td><td>Tap MENU, then LEAVE?</td></tr></tbody></table></div><p>Gamepad styles, stick options, touch controls (Auto / On / Off and Left-handed layout), and ship-computer announcer voices (Female AI, Male AI, Tactical Droid) are available in Settings.</p></details>
+      <details class="controls-panel"><summary>Flight controls</summary><div class="controls-scroll"><table><caption class="sr-only">Default keyboard, mouse, twin-stick gamepad, and touch controls</caption><thead><tr><th scope="col">Action</th><th scope="col">Keyboard &amp; mouse</th><th scope="col">Gamepad</th><th scope="col">Touch (phone / tablet)</th></tr></thead><tbody><tr><th scope="row">Thrust / strafe</th><td>W / S · A / D (ship-relative)</td><td>Left stick (screen-relative)</td><td>Left thumb floating stick (screen-relative)</td></tr><tr><th scope="row">Aim / fire</th><td>Mouse / left click</td><td>Right stick / right trigger</td><td>Right thumb floating stick (fires while pushed)</td></tr><tr><th scope="row">Ship special</th><td>Space or Left Shift</td><td>Either bumper</td><td>Special button above aim stick</td></tr><tr><th scope="row">Scoreboard</th><td>Hold Tab</td><td>Hold View / Select</td><td>Hold SCORES</td></tr><tr><th scope="row">Return to menu</th><td>Esc</td><td>Start / Menu</td><td>Tap MENU, then LEAVE?</td></tr></tbody></table></div><p>Gamepad styles, stick options, touch controls (Auto / On / Off and Left-handed layout), and ship-computer announcer voices (Female AI, Male AI, Tactical Droid) are available in Settings. Announcer Speech defaults to Essential; choose Full for more callouts or Off for silence.</p></details>
       <div class="faq-list">
         <details><summary>Can I play without other players?</summary><p>Yes. Practice runs offline against bots without signing in—either a single 12v12 battle or a full Offline Rift War across the galaxy. Online, bots fill open fighter slots so you can join even when few people are playing.</p></details>
         <details><summary>Does the online galaxy keep going when I leave?</summary><p>Yes. The dedicated galaxy saves its war state in the database and runs battles with bots while pilots are away. Your game does not need to stay open. Offline practice is separate from the shared online war.</p></details>
+        <details><summary>How does progression work?</summary><p>Current development builds track battle score, assists, and a war rank for each Rift Cycle. The galactic map can summarize changes since your last visit. These newer online features are still being verified for playtests; offline practice does not affect your online career.</p></details>
         <details><summary>What if I cannot join?</summary><p>Use the current playtest build and check the galaxy status shown on the Rift War button in the main menu. If a front closes after its battle or a connection drops, return to the map or menu and join an open front. Follow the first-launch instructions supplied with your build.</p></details>
         <details><summary>Need help or want to report a bug?</summary><p><a href="mailto:support@codersbrew.com?subject=Xenon%20Rift%20help">Ask for help ↗</a>. Include your device, build version, what happened, and steps to reproduce it. Do not send passwords or sign-in tokens.</p></details>
       </div>

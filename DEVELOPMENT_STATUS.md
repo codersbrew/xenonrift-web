@@ -1,5 +1,36 @@
 # Website development status
 
+## Current game / fleet imagery sync (2026-11-13)
+
+- Checked clean game revision `3730af5`: **Sol Alliance vs Aphelion Collective**, six faction hulls
+  sharing three class loadouts. Homepage now includes **Scythe, Crescent, Juggernaut** alongside
+  Interceptor, Striker and Dreadnought, with distinct current models and matching weapons/specials.
+- Fresh Unity batch ship renders and two passing PlayMode capture tests supplied current fleet HUD,
+  arena and 15-rift Orion Spur map. Replaced retired bronze-faction art and Kiln Gate labels with
+  magenta Aphelion fleets and Ross 128 briefing. All six hull crops preserve complete geometry.
+- Updated Hangar/deployment instructions, mixed-class bots and Essential / Full / Off announcer copy.
+  New progression/away-report copy explicitly notes development-build and online-verification limits.
+- PR-only isolated checkout: `npm ci`, `npm run build` and full `npm test -- --workers=4`
+  passed, **142/142** on desktop/mobile Chromium. No test exclusions needed in PR checkout;
+  unrelated local download work/tests are not part of this change. Reviewed all six ship renders
+  and desktop/mobile layout; browser console clean.
+- Provenance/re-export: [tools/GAME_MEDIA.md](tools/GAME_MEDIA.md). Hero video/fallback retained.
+  No game source/saved-scene changes, deployment, or unrelated download changes.
+
+## Gameplay hero (2026-11-13)
+
+- Homepage uses real 10.5-second, silent Fleet Battle footage over Earth, with responsive 1600/800px
+  WebP still underneath. Capture is offline bot gameplay, labeled in caption. Social cards use matching still.
+- `src/hero-video.js` loads video only for playback, honors reduced motion/Save-Data/2G defaults,
+  allows manual play/pause, and pauses off-screen/in hidden tabs. Failed playback/no JavaScript retain
+  still and enlargement link. Existing gallery/ship art and unrelated download work remain untouched.
+- Media provenance/re-export: [tools/HERO_MEDIA.md](tools/HERO_MEDIA.md).
+- Verification: `npm run build` passed; targeted hero/landing/progressive tests **40/40 passed** on
+  desktop/mobile Chromium. Full suite **138 passed, 12 failed**, all failures in existing untracked
+  `tests/downloads.spec.js`, which expects absent download UI (`#mac-download`/`.availability-banner`).
+  Download implementation/tests were not changed. Desktop/mobile screenshots reviewed; no horizontal overflow.
+- No deployment or game source changes. Physical Safari/iOS playback remains unverified.
+
 ## Current game state sync (2026-11-09)
 
 Updated website copy, gameplay captures, controls, and legal deletion references to match the current game state (`../xenonrift` at `9f6ba39` / `8f21f37`).
