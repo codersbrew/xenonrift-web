@@ -1,5 +1,6 @@
-// Optional screenshot enlargement and TestFlight waitlist form enhancement.
+// Progressive gameplay video, screenshot enlargement and TestFlight signup.
 import { initTestflightSignup } from './testflight.js';
+import { initHeroVideo } from './hero-video.js';
 const dialog = document.getElementById('lightbox');
 const image = document.getElementById('lightbox-image');
 const caption = document.getElementById('lightbox-caption');
@@ -44,3 +45,4 @@ dialog.addEventListener('close', () => {
 
 document.getElementById('copyright-year').textContent = new Date().getFullYear();
 initTestflightSignup();
+initHeroVideo();

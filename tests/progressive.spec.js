@@ -13,7 +13,7 @@ test.describe('without JavaScript', () => {
     await page.getByText('Can I play without other players?', { exact: true }).click();
     await expect(page.getByText('Yes. Practice runs offline against bots', { exact: false })).toBeVisible();
     await page.getByRole('link', { name: 'Enlarge Fleet Battle capture' }).click();
-    await expect(page).toHaveURL(/\/images\/gameplay\/rift-gate\.webp$/);
+    await expect(page).toHaveURL(/\/images\/gameplay\/earth-fleet\.webp$/);
   });
 });
 

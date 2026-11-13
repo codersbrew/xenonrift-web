@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Xenon Rift — Hero media proposal</title>
+  <link rel="icon" href="/favicon.png">
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #070a10; color: #edf4ff; }
+    * { box-sizing: border-box; }
+    body { max-width: 1200px; margin: auto; padding: 32px 20px 64px; }
+    a { color: #5ce4f7; }
+    h1 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 12px; }
+    h2 { font-size: 20px; }
+    p { color: #aebcd0; max-width: 76ch; line-height: 1.6; }
+    .tag { color: #5ce4f7; font-size: 12px; letter-spacing: .12em; }
+    figure { margin: 0; background: #101724; border: 1px solid #26354b; }
+    img, video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
+    figcaption { padding: 14px 18px; color: #aebcd0; font-size: 14px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+    .note { padding: 12px 18px; border-left: 2px solid #5ce4f7; }
+    @media (max-width: 720px) { .compare { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <p class="tag">XENON RIFT / HERO MEDIA PROPOSAL</p>
+  <h1>Show the fight. Not the parking spot.</h1>
+  <p>Real 12v12 Fleet Battle over Earth: fighters, capital ships, and cyan-versus-magenta crossfire. Captured from local macOS development build with bot-controlled pilot. No generated imagery.</p>
+  <h2>Recommended: short gameplay video + still fallback</h2>
+  <figure>
+    <video controls loop muted playsinline preload="metadata" width="1280" height="720"
+      poster="/images/gameplay/earth-fleet.webp" aria-label="Xenon Rift gameplay: fighters and capital ships exchanging fire above Earth">
+      <source src="/videos/earth-fleet-gameplay.mp4" type="video/mp4">
+      <a href="/videos/earth-fleet-gameplay.mp4">Download gameplay video</a>
+    </video>
+    <figcaption>10.5 seconds · 1280 × 720 · 30 fps · silent H.264 MP4 · approximately 3.4 MB. Press play to preview; clip repeats with a visible cut.</figcaption>
+  </figure>
+  <div class="compare">
+    <section>
+      <h2>Proposed still</h2>
+      <figure>
+        <a href="/images/gameplay/earth-fleet.webp">
+          <img src="/images/gameplay/earth-fleet.webp" width="1600" height="900" alt="Cyan capital ship firing beside a fighter, with Earth and magenta enemy fire behind them">
+        </a>
+        <figcaption>Fleet scale + actual action. 1600 × 900 WebP, approximately 94 KB; 800px version also available.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>Current hero</h2>
+      <figure>
+        <img src="/images/gameplay/rift-gate.webp" width="1600" height="900" alt="Current homepage hero: cyan carrier parked beside a rift gate">
+        <figcaption>Good environment shot, but little indication of combat or how game plays.</figcaption>
+      </figure>
+    </section>
+  </div>
+  <p class="note">Homepage now uses gameplay video with still fallback, reduced-motion/data-saving support, and play/pause control. Gate image remains available for lore or environment content.</p>
+  <p><a href="/videos/earth-fleet-gameplay.mp4">Open video</a> · <a href="/images/gameplay/earth-fleet.webp">Open full-size still</a> · <a href="/">Updated homepage</a></p>
+</body>
+</html>
